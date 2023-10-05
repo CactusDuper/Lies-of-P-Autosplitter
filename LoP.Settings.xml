@@ -1,23 +1,23 @@
 <Settings>
     <Setting Id="quest" Label="Splits On Completion of Quest">
-		<Setting Id="quest_0" Label="QST_initialize_stat" State="false" />
-        <Setting Id="quest_1" Label="Tutorial_FatalAttack_Check" State="false" />
-		<Setting Id="quest_2" Label="CH01_boss_kill" State="false" />
-		<Setting Id="quest_3" Label="CH01_bossroom_die" State="false" />
+		<Setting Id="quest_0" Label="Choose Class" State="false" />
+        	<Setting Id="quest_1" Label="Complete Fatal Attack Tutorial" State="false" />
+		<Setting Id="quest_2" Label="Kill Parade Master (1st Boss)" State="false" />
+		<Setting Id="quest_3" Label="Activate 1st Boss Stargazer?" State="false" />
 		<Setting Id="quest_4" Label="Window_sta_E01" State="false" />
-		<Setting Id="quest_5" Label="Monard_E01" State="false" />
-		<Setting Id="quest_6" Label="CH01_police_kill" State="false" />
-		<Setting Id="quest_7" Label="HotelDoor_L01" State="false" />
-		<Setting Id="quest_8" Label="Maidpuppet_E01" State="false" />
-		<Setting Id="quest_9" Label="Sophia_F01" State="false" />
+		<Setting Id="quest_5" Label="Collect Monad's Lamp" State="false" />
+		<Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false" />
+		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false" />
+		<Setting Id="quest_8" Label="Talk to Puppet Who Couldn't Enter Hotel" State="false" />
+		<Setting Id="quest_9" Label="Speak to Sophia For the First Time" State="false" />
 		<Setting Id="quest_10" Label="Sophia_F00" State="false" />
-		<Setting Id="quest_11" Label="Sophia_S00" State="false" />
-		<Setting Id="quest_12" Label="Antonia_E00" State="false" />
+		<Setting Id="quest_11" Label="Finish Speaking to Sophia For the First Time" State="false" />
+		<Setting Id="quest_12" Label="Introduce Self to Antonia" State="false" />
 		<Setting Id="quest_13" Label="Antonia_Cloth_check" State="false" />
-		<Setting Id="quest_14" Label="BlackSmith_F01" State="false" />
-		<Setting Id="quest_15" Label="ShopKeeper_F01" State="false" />
+		<Setting Id="quest_14" Label="Introduce Self to Blacksmith" State="false" />
+		<Setting Id="quest_15" Label="Introduce Self to Shopkeeper" State="false" />
 		<Setting Id="quest_16" Label="RecordPlayer_F01" State="false" />
-		<Setting Id="quest_17" Label="After_starter_pack_check" State="false" />
+		<Setting Id="quest_17" Label="Exit Hotel Through Door" State="false" />
 		<Setting Id="quest_18" Label="Hotel_Spring_Spawn" State="false" />
 		<Setting Id="quest_19" Label="Hotel_Spring_Spawn_first" State="false" />
 		<Setting Id="quest_20" Label="Hotel_Spring_Spawn_Bookshelf" State="false" />
