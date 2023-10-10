@@ -1,255 +1,27 @@
 <Settings>
-    <Setting Id="quest" Label="Splits On Completion of Quest">
-		<Setting Id="quest_0" Label="Choose Class" State="false" />
-        	<Setting Id="quest_1" Label="Complete Fatal Attack Tutorial" State="false" />
-		<Setting Id="quest_2" Label="Kill Parade Master (1st Boss)" State="false" />
-		<Setting Id="quest_3" Label="Activate 1st Boss Stargazer?" State="false" />
-		<Setting Id="quest_4" Label="Window_sta_E01" State="false" />
-		<Setting Id="quest_5" Label="Collect Monad's Lamp" State="false" />
-		<Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false" />
+    <Setting Id="boss" Label="Splits On Completion of Quest">
+	    <Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false" />
+		<Setting Id="quest_2" Label="Kill Parade Master" State="false" />
+		<Setting Id="quest_33" Label="Kill Scrapped Watchman" State="false" />
+		<Setting Id="quest_41" Label="Kill King's Flame, Fuoco" State="false" />
+		<Setting Id="quest_105" Label="Kill Fallen Archbishop Andreus" State="false" />
+		<Setting Id="quest_120" Label="Kill Eldest of the Black Rabbit Brotherhood" State="false" />
+		<Setting Id="quest_126" Label="Kill White Lady" State="false" />
+		<Setting Id="quest_133" Label="Kill Romeo, King of Puppets" State="false" />
+		<Setting Id="quest_140" Label="Kill Champion Victor" State="false" />
+		<Setting Id="quest_146" Label="Kill Puppet-Devouring Green Monster" State="false" />
+		<Setting Id="quest_164" Label="Elevator After Killing Illusionary Walker" State="false" />
+		<Setting Id="quest_167" Label="Kill Black Rabbit Brotherhood" State="false" />
+		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false" />
+		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false" />
+	</Setting>
+	<Setting Id="Stalk" Label="Stalker Kills">
+		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false" />
+		<Setting Id="Survive" Label="Kill Survivor" State="false" />
+		<Setting Id="quest_107" Label="Kill The Atoned" State="false" />
+	</Setting>
+	<Setting Id="Item" Label="Splits on items and interactions">
 		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false" />
-		<Setting Id="quest_8" Label="Talk to Puppet Who Couldn't Enter Hotel" State="false" />
-		<Setting Id="quest_9" Label="Speak to Sophia For the First Time" State="false" />
-		<Setting Id="quest_10" Label="Sophia_F00" State="false" />
-		<Setting Id="quest_11" Label="Finish Speaking to Sophia For the First Time" State="false" />
-		<Setting Id="quest_12" Label="Introduce Self to Antonia" State="false" />
-		<Setting Id="quest_13" Label="Antonia_Cloth_check" State="false" />
-		<Setting Id="quest_14" Label="Introduce Self to Blacksmith" State="false" />
-		<Setting Id="quest_15" Label="Introduce Self to Shopkeeper" State="false" />
-		<Setting Id="quest_16" Label="RecordPlayer_F01" State="false" />
-		<Setting Id="quest_17" Label="Exit Hotel Through Door" State="false" />
-		<Setting Id="quest_18" Label="Hotel_Spring_Spawn" State="false" />
-		<Setting Id="quest_19" Label="Hotel_Spring_Spawn_first" State="false" />
-		<Setting Id="quest_20" Label="Hotel_Spring_Spawn_Bookshelf" State="false" />
-		<Setting Id="quest_21" Label="Hotel_Spring_Spawn_Bookshelf_I" State="false" />
-		<Setting Id="quest_22" Label="Hotel_Spring_Spawn_Bookshelf_I_SpotB" State="false" />
-		<Setting Id="quest_23" Label="Hotel_Spring_Spawn_Bookshelf_first" State="false" />
-		<Setting Id="quest_24" Label="Hotel_Spring_Humanity_check" State="false" />
-		<Setting Id="quest_25" Label="Merchant_nst_F01" State="false" />
-		<Setting Id="quest_26" Label="ExiledLady_L01" State="false" />
-		<Setting Id="quest_27" Label="ExiledLady_E00" State="false" />
-		<Setting Id="quest_28" Label="ExiledLady_hand_check" State="false" />
-		<Setting Id="quest_29" Label="ExiledLady_sound_check" State="false" />
-		<Setting Id="quest_30" Label="Police_died" State="false" />
-		<Setting Id="quest_31" Label="Madman_L01" State="false" />
-		<Setting Id="quest_32" Label="CH02_Madman_kill" State="false" />
-		<Setting Id="quest_33" Label="CH02_boss_kill" State="false" />
-		<Setting Id="quest_34" Label="Geppetto_nst_E01" State="false" />
-		<Setting Id="quest_35" Label="Geppetto_nst_E01A" State="false" />
-		<Setting Id="quest_36" Label="Window_nst_E01" State="false" />
-		<Setting Id="quest_37" Label="Gemini_F04" State="false" />
-		<Setting Id="quest_38" Label="Venigni_Letter" State="false" />
-		<Setting Id="quest_39" Label="Geppetto_F00" State="false" />
-		<Setting Id="quest_40" Label="Geppetto_F00A" State="false" />
-		<Setting Id="quest_41" Label="CH03_boss_kill" State="false" />
-		<Setting Id="quest_42" Label="CH03_boss_kill_for_antonia" State="false" />
-		<Setting Id="quest_43" Label="Cat_ftr_E01" State="false" />
-		<Setting Id="quest_44" Label="Cat_ftr_E02" State="false" />
-		<Setting Id="quest_45" Label="Gemini_F03" State="false" />
-		<Setting Id="quest_46" Label="Survivor_E01" State="false" />
-		<Setting Id="quest_47" Label="Survivor_E02" State="false" />
-		<Setting Id="quest_48" Label="Grinder_menu_Check" State="false" />
-		<Setting Id="quest_49" Label="Venigni_mono" State="false" />
-		<Setting Id="quest_50" Label="Venigni_ftr_E00" State="false" />
-		<Setting Id="quest_51" Label="Venigni_ftr_E01" State="false" />
-		<Setting Id="quest_52" Label="Phone_L01" State="false" />
-		<Setting Id="quest_53" Label="Phone_Bell_end_check" State="false" />
-		<Setting Id="quest_54" Label="Phone_Entry_Dialog" State="false" />
-		<Setting Id="quest_55" Label="Phone_L03_Factory" State="false" />
-		<Setting Id="quest_56" Label="Phone_L03_OldTown" State="false" />
-		<Setting Id="quest_57" Label="Phone_L03_Exhibition" State="false" />
-		<Setting Id="quest_58" Label="Phone_L03_StationB" State="false" />
-		<Setting Id="quest_59" Label="Phone_L03_Ruin" State="false" />
-		<Setting Id="quest_60" Label="Humanity_check" State="false" />
-		<Setting Id="quest_61" Label="BossRoom_Ergo_Tuto" State="false" />
-		<Setting Id="quest_62" Label="LoadingScreen_InnerKrat" State="false" />
-		<Setting Id="quest_63" Label="LoadingScreen_AlchemistBridge" State="false" />
-		<Setting Id="quest_64" Label="LoadingScreen_Factory" State="false" />
-		<Setting Id="quest_65" Label="LoadingScreen_CathedralOuter" State="false" />
-		<Setting Id="quest_66" Label="LoadingScreen_CableCar" State="false" />
-		<Setting Id="quest_67" Label="LoadingScreen_CathedralInner" State="false" />
-		<Setting Id="quest_68" Label="LoadingScreen_OldTownCampfire" State="false" />
-		<Setting Id="quest_69" Label="LoadingScreen_OldTownCarcass" State="false" />
-		<Setting Id="quest_70" Label="LoadingScreen_OldTownHall" State="false" />
-		<Setting Id="quest_71" Label="LoadingScreen_OperaHall" State="false" />
-		<Setting Id="quest_72" Label="LoadingScreen_CultureStreet" State="false" />
-		<Setting Id="quest_73" Label="LoadingScreen_OperaStage" State="false" />
-		<Setting Id="quest_74" Label="LoadingScreen_Exhibition" State="false" />
-		<Setting Id="quest_75" Label="LoadingScreen_Tomorrow" State="false" />
-		<Setting Id="quest_76" Label="LoadingScreen_PietaStatue" State="false" />
-		<Setting Id="quest_77" Label="LoadingScreen_OutdoorStage" State="false" />
-		<Setting Id="quest_78" Label="LoadingScreen_Arcade" State="false" />
-		<Setting Id="quest_79" Label="LoadingScreen_Swamp" State="false" />
-		<Setting Id="quest_80" Label="LoadingScreen_Ravine" State="false" />
-		<Setting Id="quest_81" Label="LoadingScreen_Platform_B" State="false" />
-		<Setting Id="quest_82" Label="LoadingScreen_CollapsedStreet" State="false" />
-		<Setting Id="quest_83" Label="LoadingScreen_HotelB" State="false" />
-		<Setting Id="quest_84" Label="LoadingScreen_RelicInner" State="false" />
-		<Setting Id="quest_85" Label="LoadingScreen_SubmarineDock" State="false" />
-		<Setting Id="quest_86" Label="LoadingScreen_BlackSeaside" State="false" />
-		<Setting Id="quest_87" Label="LoadingScreen_MstEntrance" State="false" />
-		<Setting Id="quest_88" Label="LoadingScreen_MstInner" State="false" />
-		<Setting Id="quest_89" Label="LoadingScreen_MstCradle" State="false" />
-		<Setting Id="quest_90" Label="LoadingScreen_FactoryInner" State="false" />
-		<Setting Id="quest_91" Label="CH01_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_92" Label="CH02_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_93" Label="CH03_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_94" Label="CH04_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_95" Label="CH05_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_96" Label="CH06_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_97" Label="CH07_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_98" Label="CH08_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_99" Label="CH09_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_100" Label="CH11_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_101" Label="CH12_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_102" Label="CH13_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_103" Label="CH14_Dead_In_BossRoom" State="false" />
-		<Setting Id="quest_104" Label="Sophia_LevelUp_check" State="false" />
-		<Setting Id="quest_105" Label="CH04_boss_kill" State="false" />
-		<Setting Id="quest_106" Label="Pilgrim_L01" State="false" />
-		<Setting Id="quest_107" Label="CH04_Pilgrim_kill" State="false" />
-		<Setting Id="quest_108" Label="Giangio_cath_F01" State="false" />
-		<Setting Id="quest_109" Label="Alidoro_cath1_L01" State="false" />
-		<Setting Id="quest_110" Label="Cecile_E01" State="false" />
-		<Setting Id="quest_111" Label="Cecile_mono_E00" State="false" />
-		<Setting Id="quest_112" Label="Corps_E01" State="false" />
-		<Setting Id="quest_113" Label="AngelStatue_pray_check" State="false" />
-		<Setting Id="quest_114" Label="Simon_ost_L01" State="false" />
-		<Setting Id="quest_115" Label="Fox_ost_E01" State="false" />
-		<Setting Id="quest_116" Label="Fox_ost_E01_shortcut_check" State="false" />
-		<Setting Id="quest_117" Label="BlackMarket_F01" State="false" />
-		<Setting Id="quest_118" Label="BlackMarket_F02" State="false" />
-		<Setting Id="quest_119" Label="BlackMarket_F02_check" State="false" />
-		<Setting Id="quest_120" Label="CH05_boss_kill" State="false" />
-		<Setting Id="quest_121" Label="Husband_kill" State="false" />
-		<Setting Id="quest_122" Label="GoldTree_check_initialize_A" State="false" />
-		<Setting Id="quest_123" Label="GoldTree_check_initialize_B" State="false" />
-		<Setting Id="quest_124" Label="Giangio_F02" State="false" />
-		<Setting Id="quest_125" Label="WhiteLady_E01" State="false" />
-		<Setting Id="quest_126" Label="WhiteLady_die_check" State="false" />
-		<Setting Id="quest_127" Label="Gentleman_L01" State="false" />
-		<Setting Id="quest_128" Label="Primadonna_E01" State="false" />
-		<Setting Id="quest_129" Label="Primadonna_apple_check" State="false" />
-		<Setting Id="quest_130" Label="Primadonna_song_check" State="false" />
-		<Setting Id="quest_131" Label="Primadonna_song_check_on" State="false" />
-		<Setting Id="quest_132" Label="Primadonna_volume_check" State="false" />
-		<Setting Id="quest_133" Label="CH06_boss_kill" State="false" />
-		<Setting Id="quest_134" Label="Window_esw_E01" State="false" />
-		<Setting Id="quest_135" Label="Window_esw_hand_check" State="false" />
-		<Setting Id="quest_136" Label="Sophia_S03" State="false" />
-		<Setting Id="quest_137" Label="Geppetto_esw_volume_check" State="false" />
-		<Setting Id="quest_138" Label="Simon_exhbn_L01" State="false" />
-		<Setting Id="quest_139" Label="Merchant_exhbn_F01" State="false" />
-		<Setting Id="quest_140" Label="CH07_boss_kill" State="false" />
-		<Setting Id="quest_141" Label="Pieta_E01" State="false" />
-		<Setting Id="quest_142" Label="Pieta_E01_check" State="false" />
-		<Setting Id="quest_143" Label="Pieta_E01_check_initialize" State="false" />
-		<Setting Id="quest_144" Label="Belle_exhbn_E01" State="false" />
-		<Setting Id="quest_145" Label="Fox_exhbn_E01" State="false" />
-		<Setting Id="quest_146" Label="CH08_boss_kill" State="false" />
-		<Setting Id="quest_147" Label="CH08_boss_kill_check" State="false" />
-		<Setting Id="quest_148" Label="ArmySurgeon_die_check" State="false" />
-		<Setting Id="quest_149" Label="ArmySurgeon_E01" State="false" />
-		<Setting Id="quest_150" Label="Wego_E01" State="false" />
-		<Setting Id="quest_151" Label="Wego_S01" State="false" />
-		<Setting Id="quest_152" Label="Wego_F01" State="false" />
-		<Setting Id="quest_153" Label="Friend_of_Doll_E01" State="false" />
-		<Setting Id="quest_154" Label="Friend_of_Doll_E01_TeleportOn_Check1" State="false" />
-		<Setting Id="quest_155" Label="Friend_of_Doll_E01_TeleportOn_Check2" State="false" />
-		<Setting Id="quest_156" Label="Friend_of_Doll_E01_TeleportOn_Check3" State="false" />
-		<Setting Id="quest_157" Label="Friend_of_Doll_E01_TeleportOn_Check4" State="false" />
-		<Setting Id="quest_158" Label="Belle_L01" State="false" />
-		<Setting Id="quest_159" Label="Husband_die_check" State="false" />
-		<Setting Id="quest_160" Label="Antonia_E07" State="false" />
-		<Setting Id="quest_161" Label="CH09_boss_kill" State="false" />
-		<Setting Id="quest_162" Label="Weasel_die_check" State="false" />
-		<Setting Id="quest_163" Label="Merchant_station_b_F01" State="false" />
-		<Setting Id="quest_164" Label="CH09_sid_kill" State="false" />
-		<Setting Id="quest_165" Label="Antonia_F01" State="false" />
-		<Setting Id="quest_166" Label="CH10_boss_kill" State="false" />
-		<Setting Id="quest_167" Label="CH11_boss_kill" State="false" />
-		<Setting Id="quest_168" Label="Alidoro_ruin_E00" State="false" />
-		<Setting Id="quest_169" Label="Wego_ruin_F01" State="false" />
-		<Setting Id="quest_170" Label="Wego_ruin_F02" State="false" />
-		<Setting Id="quest_171" Label="CH12_boss_kill" State="false" />
-		<Setting Id="quest_172" Label="CH12_boss_kill_movie" State="false" />
-		<Setting Id="quest_173" Label="Experiment_E01" State="false" />
-		<Setting Id="quest_174" Label="RiddleKing_L01" State="false" />
-		<Setting Id="quest_175" Label="RiddleKing_E00" State="false" />
-		<Setting Id="quest_176" Label="RiddleKing_die_check" State="false" />
-		<Setting Id="quest_177" Label="Monastery_Memory_E01" State="false" />
-		<Setting Id="quest_178" Label="Monastery_Memory_E02" State="false" />
-		<Setting Id="quest_179" Label="Monastery_Memory_E03" State="false" />
-		<Setting Id="quest_180" Label="Monastery_Memory_E04" State="false" />
-		<Setting Id="quest_181" Label="Monastery_Memory_E05" State="false" />
-		<Setting Id="quest_182" Label="Sophia_mstA_E01" State="false" />
-		<Setting Id="quest_183" Label="Cat_mstA_E01" State="false" />
-		<Setting Id="quest_184" Label="Cat_die_check" State="false" />
-		<Setting Id="quest_185" Label="CH13_boss_kill" State="false" />
-		<Setting Id="quest_186" Label="Fox_mstA_E01" State="false" />
-		<Setting Id="quest_187" Label="Fox_mstA_E02" State="false" />
-		<Setting Id="quest_188" Label="Fox_mstA_BGM_Off" State="false" />
-		<Setting Id="quest_189" Label="Geppetto_mstB_L01" State="false" />
-		<Setting Id="quest_190" Label="Sophia_mstB_L01" State="false" />
-		<Setting Id="quest_191" Label="Sophia_mstB_L01_hair" State="false" />
-		<Setting Id="quest_192" Label="SimonManus_L01" State="false" />
-		<Setting Id="quest_193" Label="HiddenBoss_Lift_E01_Check" State="false" />
-		<Setting Id="quest_194" Label="CH14_boss_kill" State="false" />
-		<Setting Id="quest_195" Label="CH14_boss_kill_check" State="false" />
-		<Setting Id="quest_196" Label="CH14_boss_kill_Ending_Good" State="false" />
-		<Setting Id="quest_197" Label="CH14_boss_kill_Ending_True" State="false" />
-		<Setting Id="quest_198" Label="NGP_ending_reward_check" State="false" />
-		<Setting Id="quest_199" Label="Blacksmith_SwordSalute_Check" State="false" />
-		<Setting Id="quest_200" Label="Blacksmith_Beg2_Check" State="false" />
-		<Setting Id="quest_201" Label="Blacksmith_Bow_Check" State="false" />
-		<Setting Id="quest_202" Label="Antonia_Bow_Check" State="false" />
-		<Setting Id="quest_203" Label="Antonia_SwordSalute_Check" State="false" />
-		<Setting Id="quest_204" Label="Sophia_Spot1_Praise_Check" State="false" />
-		<Setting Id="quest_205" Label="Sophia_Spot6_Praise_Check" State="false" />
-		<Setting Id="quest_206" Label="Sophia_Spot14_Praise_Check" State="false" />
-		<Setting Id="quest_207" Label="Sophia_Spot15_Praise_Check" State="false" />
-		<Setting Id="quest_208" Label="Sophia_Spot16_Praise_Check" State="false" />
-		<Setting Id="quest_209" Label="Sophia_Spot17_Praise_Check" State="false" />
-		<Setting Id="quest_210" Label="Sophia_Spot22_Praise_Check" State="false" />
-		<Setting Id="quest_211" Label="Sophia_Spot1_SwordSalute_Check" State="false" />
-		<Setting Id="quest_212" Label="Sophia_Spot6_SwordSalute_Check" State="false" />
-		<Setting Id="quest_213" Label="Sophia_Spot14_SwordSalute_Check" State="false" />
-		<Setting Id="quest_214" Label="Sophia_Spot15_SwordSalute_Check" State="false" />
-		<Setting Id="quest_215" Label="Sophia_Spot16_SwordSalute_Check" State="false" />
-		<Setting Id="quest_216" Label="Sophia_Spot17_SwordSalute_Check" State="false" />
-		<Setting Id="quest_217" Label="Sophia_Spot22_SwordSalute_Check" State="false" />
-		<Setting Id="quest_218" Label="Sophia_Spot1_Bow_Check" State="false" />
-		<Setting Id="quest_219" Label="Sophia_Spot6_Bow_Check" State="false" />
-		<Setting Id="quest_220" Label="Sophia_Spot14_Bow_Check" State="false" />
-		<Setting Id="quest_221" Label="Sophia_Spot15_Bow_Check" State="false" />
-		<Setting Id="quest_222" Label="Sophia_Spot16_Bow_Check" State="false" />
-		<Setting Id="quest_223" Label="Sophia_Spot17_Bow_Check" State="false" />
-		<Setting Id="quest_224" Label="Sophia_Spot22_Bow_Check" State="false" />
-		<Setting Id="quest_225" Label="Geppetto_esw_Praise_Check" State="false" />
-		<Setting Id="quest_226" Label="Geppetto_mst_Praise_Check" State="false" />
-		<Setting Id="quest_227" Label="Tutorial_Durability_Check" State="false" />
-		<Setting Id="quest_228" Label="Tutorial_Fable_Point_Check" State="false" />
-		<Setting Id="quest_229" Label="Tutorial_Fablearts_Check" State="false" />
-		<Setting Id="quest_230" Label="Tutorial_CH1_Groogy_Check_1" State="false" />
-		<Setting Id="quest_231" Label="Tutorial_CH1_Groogy_Check_2" State="false" />
-		<Setting Id="quest_232" Label="Tutorial_CH2_Groogy_Check_1" State="false" />
-		<Setting Id="quest_233" Label="Tutorial_CH2_Groogy_Check_2" State="false" />
-		<Setting Id="quest_234" Label="Tutorial_CH3_Groogy_Check_1" State="false" />
-		<Setting Id="quest_235" Label="Tutorial_CH3_Groogy_Check_2" State="false" />
-		<Setting Id="quest_236" Label="Tutorial_Weight_Over_Check" State="false" />
-		<Setting Id="quest_237" Label="Tutorial_CH1_Furyattack_Check" State="false" />
-		<Setting Id="quest_238" Label="Tutorial_CH1_Last_Guide_Check" State="false" />
-		<Setting Id="quest_239" Label="Tutorial_BackAttack_Guide_Check" State="false" />
-		<Setting Id="quest_240" Label="Tutorial_CH01_QST_Clear" State="false" />
-		<Setting Id="quest_241" Label="Tutorial_CH02_QST_Clear" State="false" />
-		<Setting Id="quest_242" Label="Tutorial_CH03_QST_Clear" State="false" />
-		<Setting Id="quest_243" Label="" State="false" />
-		<Setting Id="quest_244" Label="" State="false" />
-		<Setting Id="quest_245" Label="" State="false" />
-		<Setting Id="quest_246" Label="" State="false" />
-		<Setting Id="quest_247" Label="" State="false" />
-		<Setting Id="quest_248" Label="" State="false" />
-		<Setting Id="quest_249" Label="" State="false" />
-		<Setting Id="quest_250" Label="" State="false" />
-		</Setting>
+	</Setting>
+	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true" />
 </Settings>
