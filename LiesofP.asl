@@ -16,11 +16,11 @@ Currently steam only
 state("LOP-Win64-Shipping", "1.2.0.0")
 {
     bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
-	byte menuBuffer						: 0x71E7EB0, 0x80; // 1 when loading
-    bool levelLoad						: 0x71E7EE0, 0xb4; // 0 when not in level, !0 when level is loaded (main menu to game, not for use during other loading screens)
-    long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-    int introStart						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4F0, 0x8; // Good pointer for when the game actually starts
-    string128 TransitionDescription		: 0x729BBC8, 0x8B0, 0x0; // level/zone name
+byte menuBuffer						: 0x71E7EB0, 0x80; // 1 when loading
+    bool levelLoad					: 0x71E7EE0, 0xb4; // 0 when not in level, !0 when level is loaded (main menu to game, not for use during other loading screens)
+    long QuestsData					: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+    int introStart					: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4F0, 0x8; // Good pointer for when the game actually starts
+    string128 TransitionDescription			: 0x729BBC8, 0x8B0, 0x0; // level/zone name
     int propShapeArraySize				: 0x71E7E98, 0x418;
     long propShapeArray					: 0x71E7E98, 0x410;
     long AsyncLoadingWidget				: 0x71E7EB8, 0x1d0;
