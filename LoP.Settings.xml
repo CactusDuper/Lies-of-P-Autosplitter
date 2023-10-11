@@ -15,13 +15,16 @@
 		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false" />
 		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false" />
 	</Setting>
-	<Setting Id="Stalk" Label="Stalker Kills">
+	<Setting Id="Stalk" Label="Stalker Kills/Mask Collection">
 		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false" />
-		<Setting Id="Survive" Label="Kill Survivor" State="false" />
-		<Setting Id="quest_107" Label="Kill The Atoned" State="false" />
+		<Setting Id="_Mask_Stalker_Survivor_local_text_item_name-korean" Label="Kill Survivor" State="false" />
+		<Setting Id="_Mask_Stalker_Pilgrim_local_text_item_name-korean" Label="Kill The Atoned" State="false" />
 	</Setting>
 	<Setting Id="Item" Label="Splits on items and interactions">
+		<Setting Id="_Consume_Monard_Lamp_local_text_item_name-korean" Label="Pick up Monad's Lamp" State="false" />
 		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false" />
+		<Setting Id="_SlaveArm_PuppetString_local_text_item_name-korean" Label="Recieve Puppet String Arm" State="false" />
+		<Setting Id="_Epic_key_ftr_local_text_item_name-korean" Label="Recieve Krat City Hall Courtyard Key" State="false" />
 	</Setting>
 	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true" />
 </Settings>
