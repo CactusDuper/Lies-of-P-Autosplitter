@@ -53,9 +53,9 @@
 		<Setting Id="_Mask_Stalker_WhiteLady_local_text_item_name-korean" Label="Kill The White Lady" State="false"/>
 		<Setting Id="_Mask_Stalker_ArmySurgeon_local_text_item_name-korean" Label="Kill Owl Doctor" State="false"/>
 		<Setting Id="_Mask_Stalker_Weasel_local_text_item_name-korean" Label="Kill Robber Weasel" State="false"/>
-		<Setting Id="_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
+		<Setting Id="_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
 		<Setting Id="_Mask_Stalker_Cat_local_text_item_name-korean" Label="Kill Black Cat Or Spare Him" State="false"/>
-		<Setting Id="_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
+		<Setting Id="_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
 	</Setting>
 	<Setting Id="Item" Label="Splits on items and interactions">
 		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/>
