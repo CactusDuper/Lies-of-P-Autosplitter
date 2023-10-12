@@ -13,20 +13,28 @@ Last updated: 11 Oct 2023
 Currently steam only
 */
 
-state("LOP-Win64-Shipping", "1.2.0.0")
+state("LOP-Win64-Shipping", "1.2.0.0 Steam")
 {
-    bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
-	byte menuBuffer						: 0x71E7EB0, 0x80; // 1 when loading
-    bool levelLoad						: 0x71E7EE0, 0xb4; // 0 when not in level, !0 when level is loaded (main menu to game, not for use during other loading screens)
-    long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-    int introStart						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4F0, 0x8; // Good pointer for when the game actually starts
-    string128 TransitionDescription		: 0x729BBC8, 0x8B0, 0x0; // level/zone name
-    int propShapeArraySize				: 0x71E7E98, 0x418;
-    long propShapeArray					: 0x71E7E98, 0x410;
-    long AsyncLoadingWidget				: 0x71E7EB8, 0x1D0;
 	float X								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
 	float Y								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
 	float Z								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
+	byte menuBuffer						: 0x71E7EB0, 0x80;
+    bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
+	long AsyncLoadingWidget				: 0x71E7EB8, 0x1D0;
+    long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+    string128 TransitionDescription		: 0x729BBC8, 0x8B0, 0x0; // level/zone name
+}
+
+state("LOP-WinGDK-Shipping", "1.2.0.0 Xbox")
+{
+	float X								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	byte menuBuffer						: 0x69F4680, 0x80;
+    bool bPlayInputLock					: 0x69F4680, 0x110; // 1 when loading
+	long AsyncLoadingWidget				: 0x69F4678, 0x1D0;
+    long QuestsData						: 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription		: 0x6AA3640, 0x8B0, 0x0; // level/zone name
 }
 
 startup
@@ -38,7 +46,7 @@ startup
 init
 {
 	vars.completedSplits = new HashSet<string>();
-	vars.XYZSplits = new bool[50];
+	vars.XYZSplits = new bool[27];
 	
     // this function is a helper for checking splits that may or may not exist in settings,
     // and if we want to do them only once
@@ -55,19 +63,28 @@ init
         return true;
     });
 
-    string md5 = "";
-    md5 = (string)vars.Helper.GetMD5Hash();
-
-    switch (md5)
-    {
-        case "355661BF57D607C65564EE818CDDFB7B":
-            version = "1.2.0.0";
+	string md5 = "";
+    try {
+        md5 = (string)vars.Helper.GetMD5Hash();
+    } catch {
+        // Failed to open file for MD5 computation.
+    }
+	
+	switch (md5) {
+			case "355661BF57D607C65564EE818CDDFB7B":
+            version = "1.2.0.0 Steam";
 			vars.itemInfo = 0x72B01A8;
             break;
         default:
-            print("Unknown version detected");
-            return false;
-    }
+            // No version found with hash, fallback to memorySize
+            switch ((int)vars.Helper.GetMemorySize()) {
+			case (410910720):
+				version = "1.2.0.0 Xbox";
+				vars.itemInfo = 0x6AB87D8;
+				break;
+		}
+        break;
+	}
 
 	current.itemsInfo = new string[100].Select((_, i) => {
 	StringBuilder sb = new StringBuilder(300);
@@ -81,7 +98,7 @@ init
 onStart
 {
     vars.completedSplits.Clear();
-	vars.XYZSplits = new bool[50];
+	vars.XYZSplits = new bool[27];
 }
 
 start
@@ -99,7 +116,7 @@ update
 {
 	if (timer.CurrentPhase == TimerPhase.NotRunning){ 
 		vars.completedSplits.Clear();
-		vars.XYZSplits = new bool[50];
+		vars.XYZSplits = new bool[27];
 	}
 	
 	current.itemsInfo = new string[100].Select((_, i) => {
