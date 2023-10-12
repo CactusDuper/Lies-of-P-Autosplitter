@@ -59,7 +59,7 @@
 	</Setting>
 	<Setting Id="Item" Label="Splits on items and interactions">
 		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/>
-		<Setting Id="_WP_PC_BLD_Baton_local_text_item_name-korean" Label="Pick Up Krat Police Baton" State="false"/>
+		<Setting Id="_WP_PC_HND_Baton_local_text_item_name-korean" Label="Pick Up Krat Police Baton" State="false"/>
 		<Setting Id="_WP_PC_BLD_ClockworkBlunt_local_text_item_name-korean" Label="Pick Up Big Pipe Wrench" State="false"/>
 		<Setting Id="_Krat_BlackBox_2_local_text_item_name-korean" Label="Collect Krat Supply Box" State="false"/>
 		<Setting Id="_Krat_BlackBox_3_local_text_item_name-korean" Label="Collect Sturdy Krat Supply Box" State="false"/>
