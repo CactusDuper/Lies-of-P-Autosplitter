@@ -193,8 +193,8 @@ split
 
 isLoading
 {
-    if (current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/Loading_P" || current.AsyncLoadingWidget != 0xFFFFFFFF ||
-		current.menuBuffer == 3 || current.menuBuffer == 2)
+    if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/Loading_P" || current.AsyncLoadingWidget != 0xFFFFFFFF ||
+		current.menuBuffer < 5)
     {
         return true;
     }
