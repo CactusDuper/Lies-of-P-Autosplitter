@@ -87,7 +87,7 @@ init
             		version = "1.2.0.0 Steam";
 			vars.itemInfo = 0x72B01A8;
 			break;
-		case "md5 for 1.3.0.0":
+		case "5FB74D8903618EB40C350B71499357AC":
 			version = "1.3.0.0 Steam";
 			vars.itemInfo = 0x07204700;
 			break;
