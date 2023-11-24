@@ -26,32 +26,32 @@ state("LOP-Win64-Shipping", "1.3.0.0 Steam")
 
 state("LOP-Win64-Shipping", "1.2.0.0 Steam")
 {
-	float X								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
+	float X							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
 	byte menuBuffer						: 0x71E7EB0, 0x80;
-    bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
-	long AsyncLoadingWidget				: 0x71E7EB8, 0x1D0;
-    long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-    string128 TransitionDescription		: 0x729BBC8, 0x8B0, 0x0; // level/zone name
+	bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
+	long AsyncLoadingWidget					: 0x71E7EB8, 0x1D0;
+	long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription				: 0x729BBC8, 0x8B0, 0x0; // level/zone name
 }
 
 state("LOP-WinGDK-Shipping", "1.2.0.0 Xbox")
 {
-	float X								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	float X							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
 	byte menuBuffer						: 0x69F4680, 0x80;
-    bool bPlayInputLock					: 0x69F4680, 0x110; // 1 when loading
-	long AsyncLoadingWidget				: 0x69F4678, 0x1D0;
-    long QuestsData						: 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-	string128 TransitionDescription		: 0x6AA3640, 0x8B0, 0x0; // level/zone name
+	bool bPlayInputLock					: 0x69F4680, 0x110; // 1 when loading
+	long AsyncLoadingWidget					: 0x69F4678, 0x1D0;
+	long QuestsData						: 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription				: 0x6AA3640, 0x8B0, 0x0; // level/zone name
 }
 
 startup
 {
-    Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.Helper.Settings.CreateFromXml("Components/LoP.Settings.xml");
+	Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
+	vars.Helper.Settings.CreateFromXml("Components/LoP.Settings.xml");
 }
 
 init
@@ -59,42 +59,47 @@ init
 	vars.completedSplits = new HashSet<string>();
 	vars.XYZSplits = new bool[27];
 	
-    // this function is a helper for checking splits that may or may not exist in settings,
-    // and if we want to do them only once
-    vars.CheckSplit = (Func<string, bool>)(key =>
-    {
-        // if the split doesn't exist, or it's off, or we've done it already
-        if (!settings.ContainsKey(key) || !settings[key] || vars.completedSplits.Contains(key))
-        {
-            return false;
-        }
+	// this function is a helper for checking splits that may or may not exist in settings,
+	// and if we want to do them only once
+	vars.CheckSplit = (Func<string, bool>)(key =>
+	{
+		// if the split doesn't exist, or it's off, or we've done it already
+        	if (!settings.ContainsKey(key) || !settings[key] || vars.completedSplits.Contains(key))
+        	{
+            		return false;
+        	}
 
-        vars.completedSplits.Add(key);
-        vars.Log("Completed: " + key);
-        return true;
-    });
+        	vars.completedSplits.Add(key);
+        	vars.Log("Completed: " + key);
+        	return true;
+	});
 
 	string md5 = "";
-    try {
-        md5 = (string)vars.Helper.GetMD5Hash();
-    } catch {
-        // Failed to open file for MD5 computation.
-    }
+
+	try {
+        	md5 = (string)vars.Helper.GetMD5Hash();
+    	} catch {
+        	// Failed to open file for MD5 computation.
+    	}
 	
 	switch (md5) {
-			case "355661BF57D607C65564EE818CDDFB7B":
-            version = "1.2.0.0 Steam";
+		case "355661BF57D607C65564EE818CDDFB7B":
+            		version = "1.2.0.0 Steam";
 			vars.itemInfo = 0x72B01A8;
-            break;
-        default:
-            // No version found with hash, fallback to memorySize
-            switch ((int)vars.Helper.GetMemorySize()) {
-			case (410910720):
-				version = "1.2.0.0 Xbox";
-				vars.itemInfo = 0x6AB87D8;
-				break;
-		}
-        break;
+			break;
+		case "md5 for 1.3.0.0":
+			version = "1.3.0.0 Steam";
+			vars.itemInfo = 0x07204700;
+			break;
+		default:
+			// No version found with hash, fallback to memorySize
+			switch ((int)vars.Helper.GetMemorySize()) {
+				case (410910720):
+					version = "1.2.0.0 Xbox";
+					vars.itemInfo = 0x6AB87D8;
+					break;
+			}
+        	break;
 	}
 
 	current.itemsInfo = new string[100].Select((_, i) => {
@@ -108,19 +113,19 @@ init
 
 onStart
 {
-    vars.completedSplits.Clear();
+	vars.completedSplits.Clear();
 	vars.XYZSplits = new bool[27];
 }
 
 start
 {
-    if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3)
-    {
-        vars.resetFunction = 0;
+	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3)
+	{
+        	vars.resetFunction = 0;
 
-        // print(current.TransitionDescription);
-        return true;
-    }
+        	// print(current.TransitionDescription);
+        	return true;
+    	}
 }
 
 update
@@ -222,6 +227,6 @@ reset
 
 exit
 {
-    //pauses timer if the game crashes
+	//pauses timer if the game crashes
 	timer.IsGameTimePaused = true;
 }
