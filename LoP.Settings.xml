@@ -30,7 +30,7 @@
 		<Setting Id="ArchI" Label="Enter Arche Abbey Upper Part - Inside" State="false"/>
 	</Setting>
     <Setting Id="boss" Label="Splits On Completion of Quest">
-	    <Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false"/>
+	    	<Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false"/>
 		<Setting Id="quest_2" Label="Kill Parade Master" State="false"/>
 		<Setting Id="quest_33" Label="Kill Scrapped Watchman" State="false"/>
 		<Setting Id="quest_41" Label="Kill King's Flame, Fuoco" State="false"/>
@@ -42,30 +42,30 @@
 		<Setting Id="quest_146" Label="Kill Puppet-Devouring Green Monster" State="false"/>
 		<Setting Id="quest_161" Label="Kill Corrupted Parade Master" State="false"/>
 		<Setting Id="quest_167" Label="Kill Black Rabbit Brotherhood" State="false"/>
-		<Setting Id="_Epic_key_Monastery_entry_local_text_item_name-korean" Label="Kill Door Guardian" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Epic_key_Monastery_entry_local_text_item_name-korean" Label="Kill Door Guardian" State="false"/>
 		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false"/>
 		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false"/>
 	</Setting>
 	<Setting Id="Stalk" Label="Stalker Kills/Mask Collection">
 		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false"/>
-		<Setting Id="_Mask_Stalker_Survivor_local_text_item_name-korean" Label="Kill Survivor" State="false"/>
-		<Setting Id="_Mask_Stalker_Pilgrim_local_text_item_name-korean" Label="Kill The Atoned" State="false"/>
-		<Setting Id="_Mask_Stalker_WhiteLady_local_text_item_name-korean" Label="Kill The White Lady" State="false"/>
-		<Setting Id="_Mask_Stalker_ArmySurgeon_local_text_item_name-korean" Label="Kill Owl Doctor" State="false"/>
-		<Setting Id="_Mask_Stalker_Weasel_local_text_item_name-korean" Label="Kill Robber Weasel" State="false"/>
-		<Setting Id="_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
-		<Setting Id="_Mask_Stalker_Cat_local_text_item_name-korean" Label="Kill Black Cat Or Spare Him" State="false"/>
-		<Setting Id="_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Survivor_local_text_item_name-korean" Label="Kill Survivor" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Pilgrim_local_text_item_name-korean" Label="Kill The Atoned" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_WhiteLady_local_text_item_name-korean" Label="Kill The White Lady" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_ArmySurgeon_local_text_item_name-korean" Label="Kill Owl Doctor" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Weasel_local_text_item_name-korean" Label="Kill Robber Weasel" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Cat_local_text_item_name-korean" Label="Kill Black Cat Or Spare Him" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
 	</Setting>
 	<Setting Id="Item" Label="Splits on items and interactions">
 		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/>
-		<Setting Id="_WP_PC_HND_Baton_local_text_item_name-korean" Label="Pick Up Krat Police Baton" State="false"/>
-		<Setting Id="_WP_PC_HND_ClockworkBlunt_local_text_item_name-korean" Label="Pick Up Big Pipe Wrench" State="false"/>
-		<Setting Id="_Krat_BlackBox_2_local_text_item_name-korean" Label="Collect Krat Supply Box" State="false"/>
-		<Setting Id="_Krat_BlackBox_3_local_text_item_name-korean" Label="Collect Sturdy Krat Supply Box" State="false"/>
-		<Setting Id="_Krat_BlackBox_4_local_text_item_name-korean" Label="Collect Special Krat Supply Box" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_WP_PC_HND_Baton_local_text_item_name-korean" Label="Pick Up Krat Police Baton" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_WP_PC_HND_ClockworkBlunt_local_text_item_name-korean" Label="Pick Up Big Pipe Wrench" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_2_local_text_item_name-korean" Label="Collect Krat Supply Box" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_3_local_text_item_name-korean" Label="Collect Sturdy Krat Supply Box" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_4_local_text_item_name-korean" Label="Collect Special Krat Supply Box" State="false"/>
 		<Setting Id="quest_164" Label="Elevator After Killing Illusionary Walker" State="false"/>
-		<Setting Id="_Epic_key_MonasteryB_6F_local_text_item_name-korean" Label="Recieve Arche Abbey Passageway Key" State="false"/>
+		<Setting Id="$*LocalDataInfo-ItemCommon_Epic_key_MonasteryB_6F_local_text_item_name-korean" Label="Recieve Arche Abbey Passageway Key" State="false"/>
 	</Setting>
 	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true"/>
 </Settings>
