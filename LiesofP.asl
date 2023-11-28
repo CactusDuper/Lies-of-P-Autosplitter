@@ -105,7 +105,7 @@ init
 	current.itemsInfo = new string[100].Select((_, i) => {
 	StringBuilder sb = new StringBuilder(300);
 	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x34).DerefOffsets(memory, out ptr);
+	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 	memory.ReadString(ptr, sb);
 	return sb.ToString();
 	}).ToArray();
@@ -138,7 +138,7 @@ update
 	current.itemsInfo = new string[100].Select((_, i) => {
 	StringBuilder sb = new StringBuilder(300);
 	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x34).DerefOffsets(memory, out ptr);
+	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 	memory.ReadString(ptr, sb);
 	return sb.ToString();
 	}).ToArray();
