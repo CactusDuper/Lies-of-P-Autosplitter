@@ -110,13 +110,12 @@ init
 		IntPtr ptr;
 		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + ((itemCheck + i) * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
-		print((itemCheck + i) + ": " + sb.ToString());
 		return sb.ToString();
 	}).ToArray();
 
 	vars.questIdx = new int[] { 2, 6, 7, 32, 33, 41, 105, 120, 126, 133, 140, 146, 161, 164, 167, 171, 185, 198 };
 
-	vars.xyzSplits = new float[][] {
+	vars.xyzSplitsArr = new float[][] {
 		// "Isa"
 		new float[] { 27500f, 27700f, 7670f, 7690f, 10300f, 10500f },
 		// "Grand"
@@ -244,11 +243,11 @@ split
         	}
     	}
 	
-	for (int i = 0; i < xyzSplits.Length; i++) {
-		if(settings[xyzSplitNames[i]] && !vars.XYZSplits[i] &&
-		current.X > xyzSplits[i][0] && current.X < xyzSplits[i][1] &&
-		current.Y > xyzSplits[i][2] && current.Y < xyzSplits[i][3] &&
-		current.Z > xyzSplits[i][4] && current.Z < xyzSplits[i][5]) {
+	for (int i = 0; i < vars.xyzSplitsArr.Length; i++) {
+		if(settings[vars.xyzSplitNames[i]] && !vars.XYZSplits[i] &&
+		current.X > vars.xyzSplitsArr[i][0] && current.X < vars.xyzSplitsArr[i][1] &&
+		current.Y > vars.xyzSplitsArr[i][2] && current.Y < vars.xyzSplitsArr[i][3] &&
+		current.Z > vars.xyzSplitsArr[i][4] && current.Z < vars.xyzSplitsArr[i][5]) {
 			return vars.XYZSplits[i] = true;
 		}
 	}
