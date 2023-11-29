@@ -56,6 +56,7 @@ startup
 init
 {
 	vars.completedSplits = new HashSet<string>();
+	vars.XYZSplitsStatus = new bool[27];
 	
 	// this function is a helper for checking splits that may or may not exist in settings,
 	// and if we want to do them only once
@@ -110,35 +111,35 @@ init
 	
 	vars.questIdx = new int[] { 2, 6, 7, 32, 33, 41, 105, 120, 126, 133, 140, 146, 161, 164, 167, 171, 185, 198 };
 	
-	vars.xyzSplitz = new Tuple<string, bool, float[]>[] {
-		Tuple.Create("Isa",      false, new float[] { 27500f, 27700f,  7670f,  7690f,  10300f,  10500f }),
-		Tuple.Create("Grand",    false, new float[] { 56594f, 56610f,  8055f,  8065f,  65207f,  65223f }),
-		Tuple.Create("Barr",     false, new float[] { 56700f, 56900f,  8265f,  8275f,  76000f,  76200f }),
-		Tuple.Create("Alch",     false, new float[] {  7600f,  7800f,   850f,   900f, 119000f, 120000f }),
-		Tuple.Create("ArchI",    false, new float[] {  4060f,  4200f, 41713f, 41733f,  -4940f,  -4800f }),
-		Tuple.Create("Outer",    false, new float[] { 10192f, 10193f,  4915f,  4925f,  47704f,  47708f }),
-		Tuple.Create("Elys",     false, new float[] { 21240f, 21250f,  6830f,  6850f,   7780f,   7800f }),
-		Tuple.Create("Work",     false, new float[] { 47750f, 47800f,  7790f,  7800f, -45000f, -44600f }),
-		Tuple.Create("Veni",     false, new float[] { 56250f, 56270f,  8147f,  8157f, -36750f, -36500f }),
-		Tuple.Create("Moon",     false, new float[] { 46600f, 46920f,  3250f,  3450f, -52350f, -51900f }),
-		Tuple.Create("Path",     false, new float[] { 56750f, 56850f, 18110f, 18120f, -70000f, -69500f }),
-		Tuple.Create("Chap",     false, new float[] { 26660f, 26845f, 19843f, 19853f, -63720f, -63385f }),
-		Tuple.Create("Lib",      false, new float[] { 20250f, 20550f, 14853f, 14860f, -65690f, -65520f }),
-		Tuple.Create("Pilg",     false, new float[] { 12978f, 13115f, 12570f, 12595f, -48110f, -48050f }),
-		Tuple.Create("Tomb",     false, new float[] {  1833f,  1945f,  8940f,  8960f, -31900f, -31200f }),
-		Tuple.Create("Malum",    false, new float[] { 10029f, 10220f,  3950f,  3965f, -11550f, -11250f }),
-		Tuple.Create("Opera",    false, new float[] { 62300f, 62440f,  8560f,  8570f,  12400f,  12710f }),
-		Tuple.Create("Char",     false, new float[] { 80464f, 80520f,  8448f,  8458f,  13786f,  14380f }),
-		Tuple.Create("Arc",      false, new float[] { 72540f, 72630f,  6045f,  6055f,  27514f,  27782f }),
-		Tuple.Create("GrandE",   false, new float[] { 54310f, 54520f,  8665f,  8675f,  54820f,  54870f }),
-		Tuple.Create("Ravine",   false, new float[] { 24600f, 24900f,  6730f,  6780f,  90800f,  91397f }),
-		Tuple.Create("Station",  false, new float[] { 12575f, 12705f,  4035f,  4110f,  66830f,  67165f }),
-		Tuple.Create("Outer2",   false, new float[] { 10050f, 10295f,  4915f,  4925f,  47604f,  47715f }),
-		Tuple.Create("Collapse", false, new float[] { 24930f, 25060f,  5145f,  5156f,  45219f,  45277f }),
-		Tuple.Create("CollTow",  false, new float[] { 23370f, 23434f,  5297f,  5307f,  30300f,  30800f }),
-		Tuple.Create("Tris",     false, new float[] { -7450f, -7330f, -6543f, -6537f,  13760f,  13890f }),
-		Tuple.Create("ArchW",    false, new float[] { 12840f, 13250f, 16207f, 16217f,  15930f,  16120f }),
-		Tuple.Create("ArchR",    false, new float[] { 14070f, 14360f, 26220f, 26240f,  10800f,  10990f })
+	vars.xyzSplits = new Tuple<string, int, float[]>[] {
+		Tuple.Create("Isa",       0, new float[] { 27500f, 27700f,  7670f,  7690f,  10300f,  10500f }),
+		Tuple.Create("Grand",     1, new float[] { 56594f, 56610f,  8055f,  8065f,  65207f,  65223f }),
+		Tuple.Create("Barr",      2, new float[] { 56700f, 56900f,  8265f,  8275f,  76000f,  76200f }),
+		Tuple.Create("Alch",      3, new float[] {  7600f,  7800f,   850f,   900f, 119000f, 120000f }),
+		Tuple.Create("ArchI",     4, new float[] {  4060f,  4200f, 41713f, 41733f,  -4940f,  -4800f }),
+		Tuple.Create("Outer",     5, new float[] { 10192f, 10193f,  4915f,  4925f,  47704f,  47708f }),
+		Tuple.Create("Elys",      6, new float[] { 21240f, 21250f,  6830f,  6850f,   7780f,   7800f }),
+		Tuple.Create("Work",      7, new float[] { 47750f, 47800f,  7790f,  7800f, -45000f, -44600f }),
+		Tuple.Create("Veni",      8, new float[] { 56250f, 56270f,  8147f,  8157f, -36750f, -36500f }),
+		Tuple.Create("Moon",      9, new float[] { 46600f, 46920f,  3250f,  3450f, -52350f, -51900f }),
+		Tuple.Create("Path",     10, new float[] { 56750f, 56850f, 18110f, 18120f, -70000f, -69500f }),
+		Tuple.Create("Chap",     11, new float[] { 26660f, 26845f, 19843f, 19853f, -63720f, -63385f }),
+		Tuple.Create("Lib",      12, new float[] { 20250f, 20550f, 14853f, 14860f, -65690f, -65520f }),
+		Tuple.Create("Pilg",     13, new float[] { 12978f, 13115f, 12570f, 12595f, -48110f, -48050f }),
+		Tuple.Create("Tomb",     14, new float[] {  1833f,  1945f,  8940f,  8960f, -31900f, -31200f }),
+		Tuple.Create("Malum",    15, new float[] { 10029f, 10220f,  3950f,  3965f, -11550f, -11250f }),
+		Tuple.Create("Opera",    16, new float[] { 62300f, 62440f,  8560f,  8570f,  12400f,  12710f }),
+		Tuple.Create("Char",     17, new float[] { 80464f, 80520f,  8448f,  8458f,  13786f,  14380f }),
+		Tuple.Create("Arc",      18, new float[] { 72540f, 72630f,  6045f,  6055f,  27514f,  27782f }),
+		Tuple.Create("GrandE",   19, new float[] { 54310f, 54520f,  8665f,  8675f,  54820f,  54870f }),
+		Tuple.Create("Ravine",   20, new float[] { 24600f, 24900f,  6730f,  6780f,  90800f,  91397f }),
+		Tuple.Create("Station",  21, new float[] { 12575f, 12705f,  4035f,  4110f,  66830f,  67165f }),
+		Tuple.Create("Outer2",   22, new float[] { 10050f, 10295f,  4915f,  4925f,  47604f,  47715f }),
+		Tuple.Create("Collapse", 23, new float[] { 24930f, 25060f,  5145f,  5156f,  45219f,  45277f }),
+		Tuple.Create("CollTow",  24, new float[] { 23370f, 23434f,  5297f,  5307f,  30300f,  30800f }),
+		Tuple.Create("Tris",     25, new float[] { -7450f, -7330f, -6543f, -6537f,  13760f,  13890f }),
+		Tuple.Create("ArchW",    26, new float[] { 12840f, 13250f, 16207f, 16217f,  15930f,  16120f }),
+		Tuple.Create("ArchR",    27, new float[] { 14070f, 14360f, 26220f, 26240f,  10800f,  10990f })
 	};
 	
 }
@@ -146,10 +147,7 @@ init
 onStart
 {
 	vars.completedSplits.Clear();
-
-	foreach (var xyzSplit in vars.xyzSplitz) {
-		xyzSplit.Item2 = false;
-	}
+	vars.XYZSplitsStatus = new bool[27];
 }
 
 start
@@ -210,11 +208,11 @@ split
 		string splitName = xyzSplit.Item1;
 		float[] splitValues = xyzSplit.Item3;
 
-		if (settings[splitName] && !xyzSplit.Item2 &&
+		if (settings[splitName] && !vars.XYZSplitsStatus[xyzSplit.Item2] &&
 		current.X > splitValues[0] && current.X < splitValues[1] &&
 		current.Y > splitValues[2] && current.Y < splitValues[3] &&
 		current.Z > splitValues[4] && current.Z < splitValues[5]) {
-			return xyzSplit.Item2 = true;
+			return vars.XYZSplitsStatus[xyzSplit.Item2] = true;
 		}
 	}
 
