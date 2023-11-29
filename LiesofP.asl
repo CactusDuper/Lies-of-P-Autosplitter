@@ -8,7 +8,7 @@ Diggity: @diggitydingdong on Discord. Autosplit logic for quest arrary
 
 https://www.speedrun.com/lies_of_p
 
-Last updated: 24 Nov 2023
+Last updated: 29 Nov 2023
 
 */
 
@@ -61,9 +61,10 @@ init
 	
 	// this function is a helper for checking splits that may or may not exist in settings,
 	// and if we want to do them only once
-	vars.CheckSplit = (Func<string, bool>)(key =>
+	vars.CheckSplit = (Func<int, bool>)(idx =>
 	{
 		// if the split doesn't exist, or it's off, or we've done it already
+		var key = "quest_" + idx;
         	if (!settings.ContainsKey(key) || !settings[key] || vars.completedSplits.Contains(key))
         	{
             		return false;
@@ -103,12 +104,80 @@ init
 	}
 
 	current.itemsInfo = new string[100].Select((_, i) => {
-	StringBuilder sb = new StringBuilder(300);
-	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
-	memory.ReadString(ptr, sb);
-	return sb.ToString();
+		StringBuilder sb = new StringBuilder(300);
+		IntPtr ptr;
+		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		memory.ReadString(ptr, sb);
+		return sb.ToString();
 	}).ToArray();
+
+	int[] questIdx = { 2, 6, 7, 32, 33, 41, 105, 120, 126, 133, 140, 146, 161, 164, 167, 171, 185, 198 };
+
+	float[][] xyzSplits = new float[][] {
+		// "Isa"
+		new float[] { 27500f, 27700f, 7670f, 7690f, 10300f, 10500f },
+		// "Grand"
+		new float[] { 56594f, 56610f, 8055f, 8065f, 65207f, 65223f },
+		// "Barr"
+		new float[] { 56700f, 56900f, 8265f, 8275f, 76000f, 76200f },
+		// "Alch"
+		new float[] { 7600f, 7800f, 850f, 900f, 119000f, 120000f },
+		// "ArchI"
+		new float[] { 4060f, 4200f, 41713f, 41733f, -4940f, -4800f },
+		// "Outer"
+		new float[] { 10192f, 10193f, 4915f, 4925f, 47704f, 47708f },
+		// "Elys"
+		new float[] { 21240f, 21250f, 6830f, 6850f, 7780f, 7800f },
+		// "Work"
+		new float[] { 47750f, 47800f, 7790f, 7800f, -45000f, -44600f },
+		// "Veni"
+		new float[] { 56250f, 56270f, 8147f, 8157f, -36750f, -36500f },
+		// "Moon"
+		new float[] { 46600f, 46920f, 3250f, 3450f, -52350f, -51900f },
+		// "Path"
+		new float[] { 56750f, 56850f, 18110f, 18120f, -70000f, -69500f },
+		// "Chap"
+		new float[] { 26660f, 26845f, 19843f, 19853f, -63720f, -63385f },
+		// "Lib"
+		new float[] { 20250f, 20550f, 14853f, 14860f, -65690f, -65520f },
+		// "Pilg"
+		new float[] { 12978f, 13115f, 12570f, 12595f, -48110f, -48050f },
+		// "Tomb"
+		new float[] { 1833f, 1945f, 8940f, 8960f, -31900f, -31200f },
+		// "Malum"
+		new float[] { 10029f, 10220f, 3950f, 3965f, -11550f, -11250f },
+		// "Opera"
+		new float[] { 62300f, 62440f, 8560f, 8570f, 12400f, 12710f },
+		// "Char"
+		new float[] { 80464f, 80520f, 8448f, 8458f, 13786f, 14380f },
+		// "Arc"
+		new float[] { 72540f, 72630f, 6045f, 6055f, 27514f, 27782f },
+		// "GrandE"
+		new float[] { 54310f, 54520f, 8665f, 8675f, 54820f, 54870f },
+		// "Ravine"
+		new float[] { 24600f, 24900f, 6730f, 6780f, 90800f, 91397f },
+		// "Station"
+		new float[] { 12575f, 12705f, 4035f, 4110f, 66830f, 67165f },
+		// "Outer2"
+		new float[] { 10050f, 10295f, 4915f, 4925f, 47604f, 47715f },
+		// "Collapse"
+		new float[] { 24930f, 25060f, 5145f, 5156f, 45219f, 45277f },
+		// "CollTow"
+		new float[] { 23370f, 23434f, 5297f, 5307f, 30300f, 30800f },
+		// "Tris"
+		new float[] { -7450f, -7330f, -6543f, -6537f, 13760f, 13890f },
+		// "ArchW"
+		new float[] { 12840f, 13250f, 16207f, 16217f, 15930f, 16120f },
+		// "ArchR"
+		new float[] { 14070f, 14360f, 26220f, 26240f, 10800f, 10990f }
+	};
+
+	string[] xyzSplitNames = new string[] {
+		"Isa", "Grand", "Barr", "Alch", "ArchI", "Outer", "Elys",
+		"Work",	"Veni", "Moon", "Path", "Chap", "Lib", "Pilg",
+		"Tomb", "Malum", "Opera", "Char", "Arc", "GrandE", "Ravine",
+		"Station", "Outer2", "Collapse", "CollTow", "Tris", "ArchW", "ArchR"
+	};
 }
 
 onStart
@@ -136,11 +205,11 @@ update
 	}
 	
 	current.itemsInfo = new string[100].Select((_, i) => {
-	StringBuilder sb = new StringBuilder(300);
-	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
-	memory.ReadString(ptr, sb);
-	return sb.ToString();
+		StringBuilder sb = new StringBuilder(300);
+		IntPtr ptr;
+		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		memory.ReadString(ptr, sb);
+		return sb.ToString();
 	}).ToArray();
 }
 
@@ -148,81 +217,51 @@ split
 {
 	string[] currentitemsInfo = (current.itemsInfo as string[]);
 	string[] olditemsInfo = (old.itemsInfo as string[]); // throws error first update, will be fine afterwards.
-	if (!currentitemsInfo.SequenceEqual(olditemsInfo)){
+	if (!currentitemsInfo.SequenceEqual(olditemsInfo)) {
 		string[] delta = (currentitemsInfo as string[]).Where((v, i) => v != olditemsInfo[i]).ToArray();
 		
-		foreach (string item in delta){
-			if (!vars.completedSplits.Contains(item)){
+		foreach (string item in delta) {
+			if (!vars.completedSplits.Contains(item)) {
 				vars.completedSplits.Add(item);
 				return settings[item];
 			}
 		}
 	}
 	
-    for (var i = 0; i < 243; i++)
-    {
-        var questState = vars.Helper.Read<byte>((IntPtr)(current.QuestsData + i * 0x18 + 0x8));
-        var key = "quest_" + i;
-
-        if (questState == 0x2)
-        {
-
-            if (vars.CheckSplit(key))
-            {
-                return true;
-            }
-        }
-    }
+	foreach (int idx in questIdx) {
+		var questState = vars.Helper.Read<byte>((IntPtr)(current.QuestsData + idx * 0x18 + 0x8));
+		if (questState == 0x2) {
+			if (vars.CheckSplit(idx)) {
+                		return true;
+            		}
+        	}
+    	}
 	
-	if(settings["Isa"] && current.X > 27500f && current.X < 27700f && current.Y > 7670f && current.Y < 7690f && current.Z > 10300f && current.Z < 10500f && !vars.XYZSplits[0]) {return vars.XYZSplits[0]  = true;}
-	if(settings["Grand"] && current.X > 56594f && current.X < 56610f && current.Y > 8055f && current.Y < 8065f && current.Z > 65207f && current.Z < 65223f && !vars.XYZSplits[1]) {return vars.XYZSplits[1]  = true;}
-	if(settings["Barr"] && current.X > 56700f && current.X < 56900f && current.Y > 8265f && current.Y < 8275f && current.Z > 76000f && current.Z < 76200f && !vars.XYZSplits[2]) {return vars.XYZSplits[2]  = true;}
-	if(settings["Alch"] && current.X > 7600f && current.X < 7800f && current.Y > 850f && current.Y < 900f && current.Z > 119000f && current.Z < 120000f && !vars.XYZSplits[3]) {return vars.XYZSplits[3]  = true;}
-	if(settings["ArchI"] && current.X > 4060f && current.X < 4200f && current.Y > 41713f && current.Y < 41733f && current.Z > -4940f && current.Z < -4800f && !vars.XYZSplits[4]) {return vars.XYZSplits[4]  = true;}
-	if(settings["Outer"] && current.X > 10192f && current.X < 10193f && current.Y > 4915f && current.Y < 4925f && current.Z > 47704f && current.Z < 47708f && !vars.XYZSplits[5]) {return vars.XYZSplits[5]  = true;}
-	if(settings["Elys"] && current.X > 21240f && current.X < 21250f && current.Y > 6830f && current.Y < 6850f && current.Z > 7780f && current.Z < 7800f && !vars.XYZSplits[6]) {return vars.XYZSplits[6]  = true;}
-	if(settings["Work"] && current.X > 47750f && current.X < 47800f && current.Y > 7790f && current.Y < 7800f && current.Z > -45000f && current.Z < -44600f && !vars.XYZSplits[7]) {return vars.XYZSplits[7]  = true;}
-	if(settings["Veni"] && current.X > 56250f && current.X < 56270f && current.Y > 8147f && current.Y < 8157f && current.Z > -36750f && current.Z < -36500f && !vars.XYZSplits[8]) {return vars.XYZSplits[8]  = true;}
-	if(settings["Moon"] && current.X > 46600f && current.X < 46920f && current.Y > 3250f && current.Y < 3450f && current.Z > -52350f && current.Z < -51900f && !vars.XYZSplits[9]) {return vars.XYZSplits[9]  = true;}
-	if(settings["Path"] && current.X > 56750f && current.X < 56850f && current.Y > 18110f && current.Y < 18120f && current.Z > -70000f && current.Z < -69500f && !vars.XYZSplits[10]) {return vars.XYZSplits[10]  = true;}
-	if(settings["Chap"] && current.X > 26660f && current.X < 26845f && current.Y > 19843f && current.Y < 19853f && current.Z > -63720f && current.Z < -63385f && !vars.XYZSplits[11]) {return vars.XYZSplits[11]  = true;}
-	if(settings["Lib"] && current.X > 20250f && current.X < 20550f && current.Y > 14853f && current.Y < 14860f && current.Z > -65690f && current.Z < -65520f && !vars.XYZSplits[12]) {return vars.XYZSplits[12]  = true;}
-	if(settings["Pilg"] && current.X > 12978f && current.X < 13115f && current.Y > 12570f && current.Y < 12595f && current.Z > -48110f && current.Z < -48050f && !vars.XYZSplits[13]) {return vars.XYZSplits[13]  = true;}
-	if(settings["Tomb"] && current.X > 1833f && current.X < 1945f && current.Y > 8940f && current.Y < 8960f && current.Z > -31900f && current.Z < -31200f && !vars.XYZSplits[14]) {return vars.XYZSplits[14]  = true;}
-	if(settings["Malum"] && current.X > 10029f && current.X < 10220f && current.Y > 3950f && current.Y < 3965f && current.Z > -11550f && current.Z < -11250f && !vars.XYZSplits[15]) {return vars.XYZSplits[15]  = true;}
-	if(settings["Opera"] && current.X > 62300f && current.X < 62440f && current.Y > 8560f && current.Y < 8570f && current.Z > 12400f && current.Z < 12710f && !vars.XYZSplits[16]) {return vars.XYZSplits[16]  = true;}
-	if(settings["Char"] && current.X > 80464f && current.X < 80520f && current.Y > 8448f && current.Y < 8458f && current.Z > 13786f && current.Z < 14380f && !vars.XYZSplits[17]) {return vars.XYZSplits[17]  = true;}
-	if(settings["Arc"] && current.X > 72540f && current.X < 72630f && current.Y > 6045f && current.Y < 6055f && current.Z > 27514f && current.Z < 27782f && !vars.XYZSplits[18]) {return vars.XYZSplits[18]  = true;}
-	if(settings["GrandE"] && current.X > 54310f && current.X < 54520f && current.Y > 8665f && current.Y < 8675f && current.Z > 54820f && current.Z < 54870f && !vars.XYZSplits[19]) {return vars.XYZSplits[19]  = true;}
-	if(settings["Ravine"] && current.X > 24600f && current.X < 24900f && current.Y > 6730f && current.Y < 6780f && current.Z > 90800f && current.Z < 91397f && !vars.XYZSplits[20]) {return vars.XYZSplits[20]  = true;}
-	if(settings["Station"] && current.X > 12575f && current.X < 12705f && current.Y > 4035f && current.Y < 4110f && current.Z > 66830f && current.Z < 67165f && !vars.XYZSplits[21]) {return vars.XYZSplits[21]  = true;}
-	if(settings["Outer2"] && current.X > 10050f && current.X < 10295f && current.Y > 4915f && current.Y < 4925f && current.Z > 47604f && current.Z < 47715f && !vars.XYZSplits[22]) {return vars.XYZSplits[22]  = true;}
-	if(settings["Collapse"] && current.X > 24930f && current.X < 25060f && current.Y > 5145f && current.Y < 5156f && current.Z > 45219f && current.Z < 45277f && !vars.XYZSplits[23]) {return vars.XYZSplits[23]  = true;}
-	if(settings["CollTow"] && current.X > 23370f && current.X < 23434f && current.Y > 5297f && current.Y < 5307f && current.Z > 30300f && current.Z < 30800f && !vars.XYZSplits[24]) {return vars.XYZSplits[24]  = true;}
-	if(settings["Tris"] && current.X > -7450f && current.X < -7330f && current.Y > -6543f && current.Y < -6537f && current.Z > 13760f && current.Z < 13890f && !vars.XYZSplits[25]) {return vars.XYZSplits[25]  = true;}
-	if(settings["ArchW"] && current.X > 12840f && current.X < 13250f && current.Y > 16207f && current.Y < 16217f && current.Z > 15930f && current.Z < 16120f && !vars.XYZSplits[26]) {return vars.XYZSplits[26]  = true;}
-	if(settings["ArchR"] && current.X > 14070f && current.X < 14360f && current.Y > 26220f && current.Y < 26240f && current.Z > 10800f && current.Z < 10990f && !vars.XYZSplits[27]) {return vars.XYZSplits[27]  = true;}
-	
-	
-	
+	for (int i = 0; i < xyzSplits.Length; i++) {
+		if(settings[xyzSplitNames[i]] && !vars.XYZSplits[i] &&
+		current.X > xyzSplits[i][0] && current.X < xyzSplits[i][1] &&
+		current.Y > xyzSplits[i][2] && current.Y < xyzSplits[i][3] &&
+		current.Z > xyzSplits[i][4] && current.Z < xyzSplits[i][5]) {
+			return vars.XYZSplits[i] = true;
+		}
+	}
 }
 
 isLoading
 {
-    if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/Loading_P" || current.AsyncLoadingWidget != 0xFFFFFFFF ||
-		current.menuBuffer < 5)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+	if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" ||
+	current.TransitionDescription == "/Game/Map/Title2_P" || current.TransitionDescription == "/Game/Map/Title3_P" ||
+	current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/Loading_P" ||
+	current.AsyncLoadingWidget != 0xFFFFFFFF || current.menuBuffer < 5) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 reset
 {
-    // check gameStartType + isStarted?
+	// check gameStartType + isStarted?
 }
 
 exit
