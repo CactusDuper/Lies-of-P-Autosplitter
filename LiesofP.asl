@@ -61,10 +61,9 @@ init
 	
 	// this function is a helper for checking splits that may or may not exist in settings,
 	// and if we want to do them only once
-	vars.CheckSplit = (Func<int, bool>)(idx =>
+	vars.CheckSplit = (Func<string, bool>)(key =>
 	{
 		// if the split doesn't exist, or it's off, or we've done it already
-		var key = "quest_" + idx;
         	if (!settings.ContainsKey(key) || !settings[key] || vars.completedSplits.Contains(key))
         	{
             		return false;
@@ -103,17 +102,21 @@ init
         	break;
 	}
 
-	current.itemsInfo = new string[100].Select((_, i) => {
+	vars.allItemsSize = new DeepPointer(vars.itemInfo, 0x180, 0x1A8).Deref<int>(game); //int32
+	var itemCheck = vars.allItemsSize - 2;
+
+	current.itemsInfo = new string[5].Select((_, i) => {
 		StringBuilder sb = new StringBuilder(300);
 		IntPtr ptr;
-		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + ((itemCheck + i) * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
+		print((itemCheck + i) + ": " + sb.ToString());
 		return sb.ToString();
 	}).ToArray();
 
-	int[] questIdx = { 2, 6, 7, 32, 33, 41, 105, 120, 126, 133, 140, 146, 161, 164, 167, 171, 185, 198 };
+	vars.questIdx = new int[] { 2, 6, 7, 32, 33, 41, 105, 120, 126, 133, 140, 146, 161, 164, 167, 171, 185, 198 };
 
-	float[][] xyzSplits = new float[][] {
+	vars.xyzSplits = new float[][] {
 		// "Isa"
 		new float[] { 27500f, 27700f, 7670f, 7690f, 10300f, 10500f },
 		// "Grand"
@@ -172,7 +175,7 @@ init
 		new float[] { 14070f, 14360f, 26220f, 26240f, 10800f, 10990f }
 	};
 
-	string[] xyzSplitNames = new string[] {
+	vars.xyzSplitNames = new string[] {
 		"Isa", "Grand", "Barr", "Alch", "ArchI", "Outer", "Elys",
 		"Work",	"Veni", "Moon", "Path", "Chap", "Lib", "Pilg",
 		"Tomb", "Malum", "Opera", "Char", "Arc", "GrandE", "Ravine",
@@ -203,11 +206,14 @@ update
 		vars.completedSplits.Clear();
 		vars.XYZSplits = new bool[27];
 	}
-	
-	current.itemsInfo = new string[100].Select((_, i) => {
+
+	vars.allItemsSize = new DeepPointer(vars.itemInfo, 0x180, 0x1A8).Deref<int>(game); //int32
+	var itemCheck = vars.allItemsSize - 2;
+
+	current.itemsInfo = new string[5].Select((_, i) => {
 		StringBuilder sb = new StringBuilder(300);
 		IntPtr ptr;
-		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + ((itemCheck + i) * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
 		return sb.ToString();
 	}).ToArray();
@@ -221,17 +227,18 @@ split
 		string[] delta = (currentitemsInfo as string[]).Where((v, i) => v != olditemsInfo[i]).ToArray();
 		
 		foreach (string item in delta) {
-			if (!vars.completedSplits.Contains(item)) {
-				vars.completedSplits.Add(item);
-				return settings[item];
+			if (vars.CheckSplit(item)) {
+				return true;
 			}
 		}
+
 	}
 	
-	foreach (int idx in questIdx) {
+	foreach (int idx in vars.questIdx) {
 		var questState = vars.Helper.Read<byte>((IntPtr)(current.QuestsData + idx * 0x18 + 0x8));
 		if (questState == 0x2) {
-			if (vars.CheckSplit(idx)) {
+			var key = "quest_" + idx;
+			if (vars.CheckSplit(key)) {
                 		return true;
             		}
         	}
