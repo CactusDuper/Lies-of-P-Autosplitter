@@ -164,7 +164,7 @@ update
 	if (timer.CurrentPhase == TimerPhase.NotRunning) { 
 		vars.completedSplits.Clear();
 
-		foreach (var xyzSplit in vars.xyzSplitz)
+		foreach (var xyzSplit in vars.xyzSplits)
 		{
 			xyzSplit.Item2 = false;
 		}
@@ -204,7 +204,7 @@ split
 		}
 	}
 	
-	foreach (var xyzSplit in vars.xyzSplitz) {
+	foreach (var xyzSplit in vars.xyzSplits) {
 		string splitName = xyzSplit.Item1;
 		float[] splitValues = xyzSplit.Item3;
 
