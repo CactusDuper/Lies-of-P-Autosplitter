@@ -30,24 +30,24 @@
 		<Setting Id="ArchI" Label="Enter Arche Abbey Upper Part - Inside" State="false"/>
 	</Setting>
     <Setting Id="boss" Label="Splits On Completion of Quest">
-	    	<Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false"/>
-		<Setting Id="quest_2" Label="Kill Parade Master" State="false"/>
-		<Setting Id="quest_33" Label="Kill Scrapped Watchman" State="false"/>
-		<Setting Id="quest_41" Label="Kill King's Flame, Fuoco" State="false"/>
-		<Setting Id="quest_105" Label="Kill Fallen Archbishop Andreus" State="false"/>
-		<Setting Id="quest_120" Label="Kill Eldest of the Black Rabbit Brotherhood" State="false"/>
-		<Setting Id="quest_126" Label="Kill White Lady" State="false"/>
-		<Setting Id="quest_133" Label="Kill Romeo, King of Puppets" State="false"/>
-		<Setting Id="quest_140" Label="Kill Champion Victor" State="false"/>
-		<Setting Id="quest_146" Label="Kill Puppet-Devouring Green Monster" State="false"/>
-		<Setting Id="quest_161" Label="Kill Corrupted Parade Master" State="false"/>
-		<Setting Id="quest_167" Label="Kill Black Rabbit Brotherhood" State="false"/>
+	    	<Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false"/> <!-- CH01_police_kill -->
+		<Setting Id="quest_2" Label="Kill Parade Master" State="false"/> <!-- CH01_boss_kill -->
+		<Setting Id="quest_33" Label="Kill Scrapped Watchman" State="false"/> <!-- CH02_boss_kill -->
+		<Setting Id="quest_41" Label="Kill King's Flame, Fuoco" State="false"/> <!-- CH03_boss_kill -->
+		<Setting Id="quest_105" Label="Kill Fallen Archbishop Andreus" State="false"/> <!-- CH04_boss_kill -->
+		<Setting Id="quest_120" Label="Kill Eldest of the Black Rabbit Brotherhood" State="false"/> <!-- CH05_boss_kill -->
+		<Setting Id="quest_126" Label="Kill White Lady" State="false"/> <!-- WhiteLady_die_check -->
+		<Setting Id="quest_133" Label="Kill Romeo, King of Puppets" State="false"/> <!-- CH06_boss_kill -->
+		<Setting Id="quest_140" Label="Kill Champion Victor" State="false"/> <!-- CH07_boss_kill -->
+		<Setting Id="quest_146" Label="Kill Puppet-Devouring Green Monster" State="false"/> <!-- CH08_boss_kill -->
+		<Setting Id="quest_161" Label="Kill Corrupted Parade Master" State="false"/> <!-- CH09_boss_kill -->
+		<Setting Id="quest_167" Label="Kill Black Rabbit Brotherhood" State="false"/> <!-- CH11_boss_kill -->
 		<Setting Id="$*LocalDataInfo-ItemCommon_Epic_key_Monastery_entry_local_text_item_name-korean" Label="Kill Door Guardian" State="false"/>
-		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false"/>
-		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false"/>
+		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false"/> <!-- CH12_boss_kill -->
+		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false"/> <!-- CH13_boss_kill -->
 	</Setting>
 	<Setting Id="Stalk" Label="Stalker Kills/Mask Collection">
-		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false"/>
+		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false"/> <!-- CH02_Madman_kill -->
 		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Survivor_local_text_item_name-korean" Label="Kill Survivor" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Pilgrim_local_text_item_name-korean" Label="Kill The Atoned" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_WhiteLady_local_text_item_name-korean" Label="Kill The White Lady" State="false"/>
@@ -58,14 +58,14 @@
 		<Setting Id="$*LocalDataInfo-ItemCommon_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
 	</Setting>
 	<Setting Id="Item" Label="Splits on items and interactions">
-		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/>
+		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/> <!-- HotelDoor_L01 -->
 		<Setting Id="$*LocalDataInfo-ItemCommon_WP_PC_HND_Baton_local_text_item_name-korean" Label="Pick Up Krat Police Baton" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_WP_PC_HND_ClockworkBlunt_local_text_item_name-korean" Label="Pick Up Big Pipe Wrench" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_2_local_text_item_name-korean" Label="Collect Krat Supply Box" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_3_local_text_item_name-korean" Label="Collect Sturdy Krat Supply Box" State="false"/>
 		<Setting Id="$*LocalDataInfo-ItemCommon_Krat_BlackBox_4_local_text_item_name-korean" Label="Collect Special Krat Supply Box" State="false"/>
-		<Setting Id="quest_164" Label="Elevator After Killing Illusionary Walker" State="false"/>
+		<Setting Id="quest_164" Label="Elevator After Killing Illusionary Walker" State="false"/> <!-- CH09_sid_kill -->
 		<Setting Id="$*LocalDataInfo-ItemCommon_Epic_key_MonasteryB_6F_local_text_item_name-korean" Label="Recieve Arche Abbey Passageway Key" State="false"/>
 	</Setting>
-	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true"/>
+	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true"/> <!-- NGP_ending_reward_check -->
 </Settings>
