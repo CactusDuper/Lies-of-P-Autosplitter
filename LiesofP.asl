@@ -8,43 +8,57 @@ Diggity: @diggitydingdong on Discord. Autosplit logic for quest arrary
 
 https://www.speedrun.com/lies_of_p
 
-Last updated: 29 Nov 2023
+Last updated: 16 Dec 2023
 */
+
+
+state("LOP-Win64-Shipping", "1.4.0.0 Steam")
+{
+	float X                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	byte menuBuffer                         : 0x07201788, 0x80;
+	bool bPlayInputLock                     : 0x07201788, 0x110; // 1 when loading
+	long AsyncLoadingWidget                 : 0x07201790, 0x1D0;
+	long QuestsData                         : 0x072B5558, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription         : 0x072B5558, 0x8B0, 0x0; // level/zone name
+    // Right now using GEngine for QuestsData, see bottom of the file for other options
+}
 
 state("LOP-Win64-Shipping", "1.3.0.0 Steam")
 {
-	float X							: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y							: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z							: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x07204770, 0x80;
-	bool bPlayInputLock					: 0x07204770, 0x110; // 1 when loading
-	long AsyncLoadingWidget					: 0x07204778, 0x1D0;
-	long QuestsData						: 0x072B8528, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0; // Used for checking quests
-	string128 TransitionDescription				: 0x072B8528, 0x8B0, 0x0; // level/zone name
+	float X                                 : 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y                                 : 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z                                 : 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	byte menuBuffer                         : 0x07204770, 0x80;
+	bool bPlayInputLock                     : 0x07204770, 0x110; // 1 when loading
+	long AsyncLoadingWidget                 : 0x07204778, 0x1D0;
+	long QuestsData                         : 0x072B8528, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription         : 0x072B8528, 0x8B0, 0x0; // level/zone name
 }
 
 state("LOP-Win64-Shipping", "1.2.0.0 Steam")
 {
-	float X							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z							: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
-	byte menuBuffer						: 0x71E7EB0, 0x80;
-	bool bPlayInputLock					: 0x71E7EB0, 0x110; // 1 when loading
-	long AsyncLoadingWidget					: 0x71E7EB8, 0x1D0;
-	long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-	string128 TransitionDescription				: 0x729BBC8, 0x8B0, 0x0; // level/zone name
+	float X                                 : 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y                                 : 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z                                 : 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
+	byte menuBuffer                         : 0x71E7EB0, 0x80;
+	bool bPlayInputLock                     : 0x71E7EB0, 0x110; // 1 when loading
+	long AsyncLoadingWidget                 : 0x71E7EB8, 0x1D0;
+	long QuestsData                         : 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription         : 0x729BBC8, 0x8B0, 0x0; // level/zone name
 }
 
 state("LOP-WinGDK-Shipping", "1.2.0.0 Xbox")
 {
-	float X							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z							: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x69F4680, 0x80;
-	bool bPlayInputLock					: 0x69F4680, 0x110; // 1 when loading
-	long AsyncLoadingWidget					: 0x69F4678, 0x1D0;
-	long QuestsData						: 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
-	string128 TransitionDescription				: 0x6AA3640, 0x8B0, 0x0; // level/zone name
+	float X                                 : 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y                                 : 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z                                 : 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	byte menuBuffer                         : 0x69F4680, 0x80;
+	bool bPlayInputLock                     : 0x69F4680, 0x110; // 1 when loading
+	long AsyncLoadingWidget                 : 0x69F4678, 0x1D0;
+	long QuestsData                         : 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription         : 0x6AA3640, 0x8B0, 0x0; // level/zone name
 }
 
 startup
@@ -56,7 +70,7 @@ startup
 init
 {
 	vars.completedSplits = new HashSet<string>();
-	vars.XYZSplitsStatus = new bool[27];
+	vars.XYZSplitsStatus = new bool[28];
 	
 	// this function is a helper for checking splits that may or may not exist in settings,
 	// and if we want to do them only once
@@ -79,33 +93,36 @@ init
 	} catch {
 		// Failed to open file for MD5 computation.
 	}
-	
 	switch (md5) {
 		case "355661BF57D607C65564EE818CDDFB7B":
 			version = "1.2.0.0 Steam";
-			vars.itemInfo = 0x72B01A8;
+			vars.LItemSystem = 0x72B01A8;
 			break;
 		case "5FB74D8903618EB40C350B71499357AC":
 			version = "1.3.0.0 Steam";
-			vars.itemInfo = 0x07204700;
+			vars.LItemSystem = 0x07204700;
 			break;
+        case "723AB07D07AE1DBD5073561D4D957D57":
+            version = "1.4.0.0 Steam";
+            vars.LItemSystem = 0x07201748;
+            break;
 		default:
 			// No version found with hash, fallback to memorySize
 			switch ((int)vars.Helper.GetMemorySize()) {
 				case (410910720):
 					version = "1.2.0.0 Xbox";
-					vars.itemInfo = 0x6AB87D8;
+					vars.LItemSystem = 0x6AB87D8;
 					break;
 			}
 		break;
 	}
 
-	var allItemsSize = new DeepPointer(vars.itemInfo, 0x180, 0x1A8).Deref<int>(game); // TArray size for allItems
+	var allItemsSize = new DeepPointer(vars.LItemSystem, 0x180, 0x1A8).Deref<int>(game); // TArray size for allItems
 	var itemCheck = Math.Max(0, allItemsSize - 5); // To go through the 5 most recent items
 	
 	current.itemsInfo = Enumerable.Range(itemCheck, Math.Min(5, allItemsSize)).Select(i => {
 		IntPtr ptr;
-		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		new DeepPointer(vars.LItemSystem, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 		return memory.ReadString(ptr, 300);
 	}).ToArray();
 	
@@ -147,7 +164,7 @@ init
 onStart
 {
 	vars.completedSplits.Clear();
-	vars.XYZSplitsStatus = new bool[27];
+	vars.XYZSplitsStatus = new bool[28];
 }
 
 start
@@ -166,16 +183,16 @@ update
 
 		foreach (var xyzSplit in vars.xyzSplits)
 		{
-			xyzSplit.Item2 = false;
+			vars.XYZSplitsStatus[xyzSplit.Item2] = false;
 		}
 	}
 
-	var allItemsSize = new DeepPointer(vars.itemInfo, 0x180, 0x1A8).Deref<int>(game); // TArray size for allItems
+	var allItemsSize = new DeepPointer(vars.LItemSystem, 0x180, 0x1A8).Deref<int>(game); // TArray size for allItems
 	var itemCheck = Math.Max(0, allItemsSize - 5); // To go through the 5 most recent items
 	
 	current.itemsInfo = Enumerable.Range(itemCheck, Math.Min(5, allItemsSize)).Select(i => {
 		IntPtr ptr;
-		new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
+		new DeepPointer(vars.LItemSystem, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x0).DerefOffsets(memory, out ptr);
 		return memory.ReadString(ptr, 300);
 	}).ToArray();
 }
@@ -241,3 +258,25 @@ exit
 	//pauses timer if the game crashes
 	timer.IsGameTimePaused = true;
 }
+
+
+
+
+
+/*
+
+	float X                                 : GWorld, OwningGameInstance, LocalPlayers[0], PlayerController, Character, CharacterMovement, LastUpdateLocation.X;
+	float Y                                 : GWorld, OwningGameInstance, LocalPlayers[0], PlayerController, Character, CharacterMovement, LastUpdateLocation.Y;
+	float Z                                 : GWorld, OwningGameInstance, LocalPlayers[0], PlayerController, Character, CharacterMovement, LastUpdateLocation.Z;
+	long QuestsData                         : GWorld, OwningGameInstance, LocalPlayers[0], PlayerController, Character, PlayingGameData, QuestSaveData;
+	byte menuBuffer                         : LPlayInputSystem, OnChangePlayInput + 0x8;
+	bool bPlayInputLock                     : LPlayInputSystem, bPlayInputLock;
+	long AsyncLoadingWidget                 : LUISystem, AsyncLoadingWidget;
+	string128 TransitionDescription         : GEngine, TransitionDescription;
+
+
+    vars.LItemSystem = LItemSystem, LPlayerInventory, AllItemList[i], CommonInfo, _local_text_item_name
+
+    I could make everything GEngine to avoid needing GWorld offsets.
+    Could also go directly to LocalPlayers[0], just would require another offset and more testing.
+*/
