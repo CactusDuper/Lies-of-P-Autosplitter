@@ -8,7 +8,7 @@ Diggity: @diggitydingdong on Discord. Autosplit logic for quest arrary
 
 https://www.speedrun.com/lies_of_p
 
-Last updated: 24 Nov 2023
+Last updated: 16 Dec 2023
 
 */
 
