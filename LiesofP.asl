@@ -12,6 +12,19 @@ Last updated: 24 Nov 2023
 
 */
 
+
+state("LOP-Win64-Shipping", "1.4.0.0 Steam")
+{
+	float X                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
+	float Y                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
+	float Z                                 : 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
+	byte menuBuffer                         : 0x07201788, 0x80;
+	bool bPlayInputLock                     : 0x07201788, 0x110; // 1 when loading
+	long AsyncLoadingWidget                 : 0x07201790, 0x1D0;
+	long QuestsData                         : 0x072B5558, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0; // Used for checking quests
+	string128 TransitionDescription         : 0x072B5558, 0x8B0, 0x0; // level/zone name
+}
+
 state("LOP-Win64-Shipping", "1.3.0.0 Steam")
 {
 	float X							: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
@@ -91,6 +104,10 @@ init
 			version = "1.3.0.0 Steam";
 			vars.itemInfo = 0x07204700;
 			break;
+	        case "723AB07D07AE1DBD5073561D4D957D57":
+	            version = "1.4.0.0 Steam";
+	            vars.itemInfo = 0x07201748;
+	            break;
 		default:
 			// No version found with hash, fallback to memorySize
 			switch ((int)vars.Helper.GetMemorySize()) {
@@ -114,7 +131,7 @@ init
 onStart
 {
 	vars.completedSplits.Clear();
-	vars.XYZSplits = new bool[27];
+	vars.XYZSplits = new bool[28];
 }
 
 start
@@ -132,7 +149,7 @@ update
 {
 	if (timer.CurrentPhase == TimerPhase.NotRunning){ 
 		vars.completedSplits.Clear();
-		vars.XYZSplits = new bool[27];
+		vars.XYZSplits = new bool[28];
 	}
 	
 	current.itemsInfo = new string[100].Select((_, i) => {
