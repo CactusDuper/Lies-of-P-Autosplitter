@@ -190,7 +190,7 @@ split
 					return settings["Baton"];
 				}
 			}
-			else if (item == "_WP_PC_BLD_Baton_local_text_item_name-korean" || item == "_WP_PC_HND_Baton_local_text_item_name-korean" || item == "_Consume_Monard_Lamp_local_text_item_name-korean"){
+			else if (item == "_WP_PC_BLD_ClockworkBlunt_local_text_item_name-korean" || item == "_WP_PC_HND_ClockworkBlunt_local_text_item_name-korean"){
 				if(settings["Wrench"] && !vars.completedSplits.Contains("Wrench")){
 					vars.completedSplits.Add("Wrench");
 					return settings["Wrench"];
