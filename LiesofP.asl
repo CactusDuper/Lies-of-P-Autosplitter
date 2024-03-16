@@ -121,7 +121,7 @@ init
 	        break;
 		case "303F9F487C202FA8DFB6571ECAFB7757":
 			version = "1.5.0.0 Steam";
-	        vars.itemInfo = 0x07203808;
+	        vars.itemInfo = 0x7203808;
 	        break;
 		default:
 		// No version found with hash, fallback to memorySize
@@ -184,7 +184,19 @@ split
 		string[] delta = (currentitemsInfo as string[]).Where((v, i) => v != olditemsInfo[i]).ToArray();
 		
 		foreach (string item in delta){
-			if (!vars.completedSplits.Contains(item)){
+			if (item == "_WP_PC_BLD_Baton_local_text_item_name-korean" || item == "_WP_PC_HND_Baton_local_text_item_name-korean"){
+				if(settings["Baton"] && !vars.completedSplits.Contains("Baton")){
+					vars.completedSplits.Add("Baton");
+					return settings["Baton"];
+				}
+			}
+			else if (item == "_WP_PC_BLD_Baton_local_text_item_name-korean" || item == "_WP_PC_HND_Baton_local_text_item_name-korean" || item == "_Consume_Monard_Lamp_local_text_item_name-korean"){
+				if(settings["Wrench"] && !vars.completedSplits.Contains("Wrench")){
+					vars.completedSplits.Add("Wrench");
+					return settings["Wrench"];
+				}
+			}
+			else if (!vars.completedSplits.Contains(item)){
 				vars.completedSplits.Add(item);
 				return settings[item];
 			}
