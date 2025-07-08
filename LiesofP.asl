@@ -12,91 +12,29 @@ Last updated: 16 Dec 2023
 
 */
 
-state("LOP-Win64-Shipping", "1.5.0.0 Steam")
-{
-	float X								: 0x071CAF30, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x071CAF30, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x071CAF30, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x07203768, 0x80;
-	bool bPlayInputLock					: 0x07203768, 0x110;
-	long AsyncLoadingWidget				: 0x07203770, 0x1D0;
-	long QuestsData						: 0x072B7618, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0;
-	string128 TransitionDescription		: 0x072B7618, 0x8B0, 0x0;
-}
-
-state("LOP-Win64-Shipping", "1.4.0.0 Steam")
-{
-	float X								: 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x071C8EB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x07201788, 0x80;
-	bool bPlayInputLock					: 0x07201788, 0x110;
-	long AsyncLoadingWidget				: 0x07201790, 0x1D0;
-	long QuestsData						: 0x072B5558, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0;
-	string128 TransitionDescription		: 0x072B5558, 0x8B0, 0x0;
-}
-
-state("LOP-Win64-Shipping", "1.3.0.0 Steam")
-{
-	float X								: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x071CBEB0, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x07204770, 0x80;
-	bool bPlayInputLock					: 0x07204770, 0x110;
-	long AsyncLoadingWidget				: 0x07204778, 0x1D0;
-	long QuestsData						: 0x072B8528, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDC8, 0x4E0;
-	string128 TransitionDescription		: 0x072B8528, 0x8B0, 0x0;
-}
-
-state("LOP-Win64-Shipping", "1.2.0.0 Steam")
-{
-	float X								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x71AF5E8, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254; 
-	byte menuBuffer						: 0x71E7EB0, 0x80;
-	bool bPlayInputLock					: 0x71E7EB0, 0x110;
-	long AsyncLoadingWidget				: 0x71E7EB8, 0x1D0;
-	long QuestsData						: 0x729BBC8, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0;
-	string128 TransitionDescription		: 0x729BBC8, 0x8B0, 0x0;
-}
-
-state("LOP-WinGDK-Shipping", "1.2.0.0 Xbox")
-{
-	float X								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250;
-	float Y								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258;
-	float Z								: 0x69BFB78, 0x180, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254;
-	byte menuBuffer						: 0x69F4680, 0x80;
-	bool bPlayInputLock					: 0x69F4680, 0x110;											// 1 when loading, 0 when you gain control
-	long AsyncLoadingWidget				: 0x69F4678, 0x1D0;
-	long QuestsData						: 0x6AA3640, 0xD28, 0x38, 0x0, 0x30, 0x220, 0xDB8, 0x4E0;	// Used for checking quests
-	string128 TransitionDescription		: 0x6AA3640, 0x8B0, 0x0;									// level/zone name
-}
+state("LOP-Win64-Shipping"){}
+state("LOP-WinGDK-Shipping"){}
 
 startup
 {
 	Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
 	vars.Helper.Settings.CreateFromXml("Components/LoP.Settings.xml");
+	
+	vars.PendingSplits = 0;
 }
 
 init
 {
-	vars.completedSplits = new HashSet<string>();
-	vars.XYZSplits = new bool[27];
+	IntPtr gEngine = vars.Helper.ScanRel(3, "4c 39 25 ?? ?? ?? ?? 0f 85 ?? ?? ?? ?? 48 8b 0d ?? ?? ?? ?? 48 8d 05");
+	IntPtr fNames = vars.Helper.ScanRel(3, "48 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 44 8b 45 ?? 48 8b f8");
 	
-	// this function is a helper for checking splits that may or may not exist in settings,
-	// and if we want to do them only once
-	vars.CheckSplit = (Func<string, bool>)(key =>
-	{
-		// if the split doesn't exist, or it's off, or we've done it already
-        	if (!settings.ContainsKey(key) || !settings[key] || vars.completedSplits.Contains(key))
-        	{
-            		return false;
-        	}
-
-        	vars.completedSplits.Add(key);
-        	vars.Log("Completed: " + key);
-        	return true;
-	});
+	vars.Helper["TransitionDescription"] = vars.Helper.MakeString(gEngine, 0x8B0, 0x0);
+	
+	vars.completedSplits = new HashSet<string>();
+	vars.Quests = new Dictionary<ulong, byte>();
+	vars.QuestSteps = new Dictionary<ulong, byte>();
+	vars.Inventory = new Dictionary<ulong, byte>();
+	vars.XYZSplits = new bool[27];
 
 	string md5 = "";
 
@@ -106,117 +44,119 @@ init
         	// Failed to open file for MD5 computation.
     	}
 	
-	switch (md5) {
-		case "355661BF57D607C65564EE818CDDFB7B":
-            version = "1.2.0.0 Steam";
-			vars.itemInfo = 0x72B01A8;				//_Consume_Rechargeable_1_local_text_item_name-korean when you start a new game
+	switch (modules.First().ModuleMemorySize)
+	{
+		case (122990592):
+			version = "DLC";
 			break;
-		case "5FB74D8903618EB40C350B71499357AC":
-			version = "1.3.0.0 Steam";
-			vars.itemInfo = 0x07204700;
+		case (122912768):
+		case (113602560):
+			version = "Post DLC";
 			break;
-	    case "723AB07D07AE1DBD5073561D4D957D57":
-			version = "1.4.0.0 Steam";
-	        vars.itemInfo = 0x07201748;
-	        break;
-		case "303F9F487C202FA8DFB6571ECAFB7757":
-			version = "1.5.0.0 Steam";
-	        vars.itemInfo = 0x7203808;
-	        break;
-		default:
-		// No version found with hash, fallback to memorySize
-		switch ((int)vars.Helper.GetMemorySize()) {
-			case (410910720):
-				version = "1.2.0.0 Xbox";
-				vars.itemInfo = 0x6AB87D8;
-				break;
-			}
-		break;
 	}
+	
+	if(version == "DLC" || version == "Post DLC"){
+		vars.Helper["QuestData"] = vars.Helper.Make<IntPtr>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x560);
+		vars.Helper["QuestDataSize"] = vars.Helper.Make<int>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x568);
+		vars.Helper["N1"] = vars.Helper.Make<ulong>(gEngine, 0xD40, 0xF0, 0x2A8, 0x78, 0x670);
+		vars.Helper["LItemSystem"] = vars.Helper.Make<ulong>(gEngine, 0xD40, 0xF0, 0x170, 0x180, 0x18);
+		vars.Helper["Inventory"] = vars.Helper.Make<IntPtr>(gEngine, 0xD40, 0xF0, 0x170, 0x180, 0x1E8);
+		vars.Helper["InventorySize"] = vars.Helper.Make<int>(gEngine, 0xD40, 0xF0, 0x170, 0x180, 0x1F0);
+		vars.Helper["X"] = vars.Helper.Make<float>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250);
+		vars.Helper["Y"] = vars.Helper.Make<float>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258);
+		vars.Helper["Z"] = vars.Helper.Make<float>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254);
+		vars.Helper["menuBuffer"] = vars.Helper.Make<byte>(gEngine, 0xD40, 0xF0, 0x260, 0x80);
+		vars.Helper["bPlayInputLock"] = vars.Helper.Make<bool>(gEngine, 0xD40, 0xF0, 0x260, 0x110);
+		vars.Helper["AsyncLoadingWidget"] = vars.Helper.Make<long>(gEngine, 0xD40, 0xF0, 0x338, 0x1E0);
+		vars.Helper["AcknowledgedPawn"] = vars.Helper.Make<ulong>(gEngine, 0xD40, 0x38, 0x0, 0x30, 0x260, 0x18);
+	}
+	
+	else{
+		vars.Helper["QuestData"] = vars.Helper.Make<IntPtr>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x560);
+		vars.Helper["QuestDataSize"] = vars.Helper.Make<int>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x568);
+		vars.Helper["Inventory"] = vars.Helper.Make<IntPtr>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x120);
+		vars.Helper["PlayerData"] = vars.Helper.Make<ulong>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x18);
+		vars.Helper["InventorySize"] = vars.Helper.Make<int>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x1008, 0x128);
+		vars.Helper["X"] = vars.Helper.Make<float>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x220, 0x248, 0x250);
+		vars.Helper["Y"] = vars.Helper.Make<float>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258);
+		vars.Helper["Z"] = vars.Helper.Make<float>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254);
+		vars.Helper["menuBuffer"] = vars.Helper.Make<byte>(gEngine, 0xD28, 0xF0, 0x230, 0x80);
+		vars.Helper["bPlayInputLock"] = vars.Helper.Make<long>(gEngine, 0xD28, 0xF0, 0x230, 0x110);
+		vars.Helper["AsyncLoadingWidget"] = vars.Helper.Make<byte>(gEngine, 0xD28, 0xF0, 0x308, 0x1D0);
+	}
+	
+	vars.FNameToString = (Func<ulong, string>)(fName =>
+	{
+		var nameIdx  = (fName & 0x000000000000FFFF) >> 0x00;
+		var chunkIdx = (fName & 0x00000000FFFF0000) >> 0x10;
+		var number   = (fName & 0xFFFFFFFF00000000) >> 0x20;
 
-	current.itemsInfo = new string[100].Select((_, i) => {
-	StringBuilder sb = new StringBuilder(300);
-	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x34).DerefOffsets(memory, out ptr);
-	memory.ReadString(ptr, sb);
-	return sb.ToString();
-	}).ToArray();
+		IntPtr chunk = vars.Helper.Read<IntPtr>(fNames + 0x10 + (int)chunkIdx * 0x8);
+		IntPtr entry = chunk + (int)nameIdx * sizeof(short);
+
+		int length = vars.Helper.Read<short>(entry) >> 6;
+		string name = vars.Helper.ReadString(length, ReadStringType.UTF8, entry + sizeof(short));
+
+		return number == 0 ? name : name + "_" + number;
+	});
+	
+	vars.FNameToShortString = (Func<ulong, string>)(fName =>
+	{
+		string name = vars.FNameToString(fName);
+
+		int dot = name.LastIndexOf('.');
+		int slash = name.LastIndexOf('/');
+
+		return name.Substring(Math.Max(dot, slash) + 1);
+	});
+	
+	vars.FNameToShortString2 = (Func<ulong, string>)(fName =>
+	{
+		string name = vars.FNameToString(fName);
+
+		int under = name.LastIndexOf('_');
+
+		return name.Substring(0, under + 1);
+	});
 }
 
 onStart
 {
 	vars.completedSplits.Clear();
-	vars.XYZSplits = new bool[28];
+	vars.XYZSplits = new bool[27];
+	vars.PendingSplits = 0;
 }
 
 start
 {
-	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3)
-	{
+	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3){
         	vars.resetFunction = 0;
 
         	// print(current.TransitionDescription);
         	return true;
-    	}
+    }
 }
 
 update
 {
+	//Uncomment debug information in the event of an update.
+	//print(modules.First().ModuleMemorySize.ToString());
+	
+	vars.Helper.Update();
+	vars.Helper.MapPointers();
+	
 	if (timer.CurrentPhase == TimerPhase.NotRunning){ 
 		vars.completedSplits.Clear();
 		vars.XYZSplits = new bool[28];
 	}
 	
-	current.itemsInfo = new string[100].Select((_, i) => {
-	StringBuilder sb = new StringBuilder(300);
-	IntPtr ptr;
-	new DeepPointer(vars.itemInfo, 0x180, 0x1A0, 0x0 + (i * 8), 0x38, 0x30, 0x34).DerefOffsets(memory, out ptr);
-	memory.ReadString(ptr, sb);
-	return sb.ToString();
-	}).ToArray();
+	//print(vars.FNameToString(current.N1));
 }
 
 split
 {
-	string[] currentitemsInfo = (current.itemsInfo as string[]);
-	string[] olditemsInfo = (old.itemsInfo as string[]); // throws error first update, will be fine afterwards.
-	if (!currentitemsInfo.SequenceEqual(olditemsInfo)){
-		string[] delta = (currentitemsInfo as string[]).Where((v, i) => v != olditemsInfo[i]).ToArray();
-		
-		foreach (string item in delta){
-			if (item == "_WP_PC_BLD_Baton_local_text_item_name-korean" || item == "_WP_PC_HND_Baton_local_text_item_name-korean"){
-				if(settings["Baton"] && !vars.completedSplits.Contains("Baton")){
-					vars.completedSplits.Add("Baton");
-					return settings["Baton"];
-				}
-			}
-			else if (item == "_WP_PC_BLD_ClockworkBlunt_local_text_item_name-korean" || item == "_WP_PC_HND_ClockworkBlunt_local_text_item_name-korean"){
-				if(settings["Wrench"] && !vars.completedSplits.Contains("Wrench")){
-					vars.completedSplits.Add("Wrench");
-					return settings["Wrench"];
-				}
-			}
-			else if (!vars.completedSplits.Contains(item)){
-				vars.completedSplits.Add(item);
-				return settings[item];
-			}
-		}
-	}
-	
-    for (var i = 0; i < 243; i++)
-    {
-        var questState = vars.Helper.Read<byte>((IntPtr)(current.QuestsData + i * 0x18 + 0x8));
-        var key = "quest_" + i;
-
-        if (questState == 0x2)
-        {
-
-            if (vars.CheckSplit(key))
-            {
-                return true;
-            }
-        }
-    }
+	string questSetting = "";
+	string itemSetting = "";
 	
 	if(settings["Isa"] && current.X > 27500f && current.X < 27700f && current.Y > 7670f && current.Y < 7690f && current.Z > 10300f && current.Z < 10500f && !vars.XYZSplits[0]) {return vars.XYZSplits[0]  = true;}
 	if(settings["Grand"] && current.X > 56594f && current.X < 56610f && current.Y > 8055f && current.Y < 8065f && current.Z > 65207f && current.Z < 65223f && !vars.XYZSplits[1]) {return vars.XYZSplits[1]  = true;}
@@ -247,14 +187,88 @@ split
 	if(settings["ArchW"] && current.X > 12840f && current.X < 13250f && current.Y > 16207f && current.Y < 16217f && current.Z > 15930f && current.Z < 16120f && !vars.XYZSplits[26]) {return vars.XYZSplits[26]  = true;}
 	if(settings["ArchR"] && current.X > 14070f && current.X < 14360f && current.Y > 26220f && current.Y < 26240f && current.Z > 10800f && current.Z < 10990f && !vars.XYZSplits[27]) {return vars.XYZSplits[27]  = true;}
 	
+	for (int i = 0; i < 350; i++)
+    {
+		ulong questName = vars.Helper.Read<ulong>(current.QuestData + 0x0 + (i * 0x18));
+        byte questState = vars.Helper.Read<byte>(current.QuestData + 0x8 + (i * 0x18));
+		byte questStep = vars.Helper.Read<byte>(current.QuestData + 0xC + (i * 0x18));
+		byte oldState;
+		byte oldStep;
+
+		if (vars.Quests.TryGetValue(questName, out oldState))
+		{
+			if (oldState < questState){
+				questSetting = vars.FNameToShortString(questName) + "_" + questStep + "_" + questState;
+				
+				if (settings.ContainsKey(questSetting) && settings[questSetting]){
+					vars.PendingSplits++;
+				}
+				
+				// Debug. Comment out before release.
+				if (!string.IsNullOrEmpty(questSetting))
+				vars.Log(questSetting);
+			}
+		}
+		
+		if (vars.QuestSteps.TryGetValue(questName, out oldStep))
+		{
+			if (oldStep < questStep){
+				questSetting = vars.FNameToShortString(questName) + "_" + questStep + "_" + questState;
+				
+				if (settings.ContainsKey(questSetting) && settings[questSetting]){
+					vars.PendingSplits++;
+				}
+				
+				// Debug. Comment out before release.
+				if (!string.IsNullOrEmpty(questSetting))
+				vars.Log(questSetting);
+			}
+		}
+		
+		vars.Quests[questName] = questState;
+		vars.QuestSteps[questName] = questStep;
+    }
 	
 	
+	if(current.InventorySize > old.InventorySize){
+		for (int i = 0; i < current.InventorySize; i++)
+		{
+			ulong itemName = vars.Helper.Read<ulong>(current.Inventory + 0x0 + (i * 0x8), 0x68);
+			byte itemCount = vars.Helper.Read<byte>(current.Inventory + 0x0 + (i * 0x8), 0x40);
+			byte oldCount;
+
+			if (vars.Inventory.TryGetValue(itemName, out oldCount))
+			{
+			}
+			else
+			{
+				itemSetting = vars.FNameToShortString(itemName) + "_(!)";
+				
+				if (settings.ContainsKey(itemSetting) && settings[itemSetting]){
+					vars.PendingSplits++;
+				}
+				
+				// Debug. Comment out before release.
+				if (!string.IsNullOrEmpty(itemSetting))
+				vars.Log(itemSetting);
+			}
+				
+			vars.Inventory[itemName] = itemCount;
+		}
+	}
+			
+	if (vars.PendingSplits > 0 && (vars.completedSplits.Add(itemSetting) || vars.completedSplits.Add(questSetting)))
+	{
+		vars.PendingSplits--;
+		return true;
+	}
 }
 
 isLoading
 {
-    if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/Loading_P" || current.AsyncLoadingWidget != 0xFFFFFFFF ||
-		current.menuBuffer < 5)
+    if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || 
+			current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || 
+			current.TransitionDescription == "/Game/Map/Loading_P" || current.menuBuffer < 5 || current.AsyncLoadingWidget != 0xFFFFFFFF)
     {
         return true;
     }
