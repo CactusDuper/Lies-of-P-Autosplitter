@@ -1,71 +1,160 @@
 <Settings>
-	<Setting Id="area" Label="Splits On Entering Area For First Time">
-		<Setting Id="Outer" Label="Enter Krat Central Station Plaza" State="false"/>
-		<Setting Id="Elys" Label="Enter Elysion Boulevard" State="false"/>
-		<Setting Id="Work" Label="Enter Workshop Union Entrance" State="false"/>
-		<Setting Id="Veni" Label="Enter Venigni Works" State="false"/>
-		<Setting Id="Moon" Label="Enter Moonlight Town" State="false"/>
-		<Setting Id="Path" Label="Enter Path of Misery" State="false"/>
-		<Setting Id="Chap" Label="Enter St. Frangelico Cathedral Chapel" State="false"/>
-		<Setting Id="Lib" Label="Enter St. Frangelico Cathedral Library" State="false"/>
-		<Setting Id="Pilg" Label="Enter Path of the Pilgrim" State="false"/>
-		<Setting Id="Tomb" Label="Enter Tomb Slums" State="false"/>
-		<Setting Id="Malum" Label="Enter Malum District" State="false"/>
-		<Setting Id="Isa" Label="Enter Rosa Isabelle" State="false"/>
-		<Setting Id="Opera" Label="Enter Estella Opera House" State="false"/>
-		<Setting Id="Char" Label="Enter Charity Market Path" State="false"/>
-		<Setting Id="Arc" Label="Enter Lorenzini Arcade" State="false"/>
-		<Setting Id="Grand" Label="Grand Exhibition Skip (Any%)" State="false"/>
-		<Setting Id="GrandE" Label="Enter Grand Exhibition Gallery" State="false"/>
-		<Setting Id="Barr" Label="Enter Barren Swamp" State="false"/>
-		<Setting Id="Ravine" Label="Enter Barren Swamp Ravine" State="false"/>
-		<Setting Id="Station" Label="Enter Central Krat Station" State="false"/>
-		<Setting Id="Outer2" Label="Enter Krat Central Station Plaza (Destroyed)" State="false"/>
-		<Setting Id="Collapse" Label="Enter Collapsing Krat" State="false"/>
-		<Setting Id="CollTow" Label="Enter Collapsed Workshop Tower" State="false"/>
-		<Setting Id="Tris" Label="Enter Relic of Trismegistus" State="false"/>
-		<Setting Id="Alch" Label="Enter Alchemist Island" State="false"/>
-		<Setting Id="ArchW" Label="Enter Arche Abbey Outer Wall" State="false"/>
-		<Setting Id="ArchR" Label="Enter Arche Abbey Broken Rift" State="false"/>
-		<Setting Id="ArchI" Label="Enter Arche Abbey Upper Part - Inside" State="false"/>
+	<Setting Id="MGame" Label="Main Game Splits">
+		<Setting Id="area" Label="Splits On Entering Area For First Time">
+			<Setting Id="Outer" Label="Enter Krat Central Station Plaza" State="false"/>
+			<Setting Id="Elys" Label="Enter Elysion Boulevard" State="false"/>
+			<Setting Id="Work" Label="Enter Workshop Union Entrance" State="false"/>
+			<Setting Id="Veni" Label="Enter Venigni Works" State="false"/>
+			<Setting Id="Moon" Label="Enter Moonlight Town" State="false"/>
+			<Setting Id="Path" Label="Enter Path of Misery" State="false"/>
+			<Setting Id="Chap" Label="Enter St. Frangelico Cathedral Chapel" State="false"/>
+			<Setting Id="Lib" Label="Enter St. Frangelico Cathedral Library" State="false"/>
+			<Setting Id="Pilg" Label="Enter Path of the Pilgrim" State="false"/>
+			<Setting Id="Tomb" Label="Enter Tomb Slums" State="false"/>
+			<Setting Id="Malum" Label="Enter Malum District" State="false"/>
+			<Setting Id="Isa" Label="Enter Rosa Isabelle" State="false"/>
+			<Setting Id="Opera" Label="Enter Estella Opera House" State="false"/>
+			<Setting Id="Char" Label="Enter Charity Market Path" State="false"/>
+			<Setting Id="Arc" Label="Enter Lorenzini Arcade" State="false"/>
+			<Setting Id="Grand" Label="Grand Exhibition Skip (Any%)" State="false"/>
+			<Setting Id="GrandE" Label="Enter Grand Exhibition Gallery" State="false"/>
+			<Setting Id="Barr" Label="Enter Barren Swamp" State="false"/>
+			<Setting Id="Ravine" Label="Enter Barren Swamp Ravine" State="false"/>
+			<Setting Id="Station" Label="Enter Central Krat Station" State="false"/>
+			<Setting Id="Outer2" Label="Enter Krat Central Station Plaza (Destroyed)" State="false"/>
+			<Setting Id="Collapse" Label="Enter Collapsing Krat" State="false"/>
+			<Setting Id="CollTow" Label="Enter Collapsed Workshop Tower" State="false"/>
+			<Setting Id="Tris" Label="Enter Relic of Trismegistus" State="false"/>
+			<Setting Id="Alch" Label="Enter Alchemist Island" State="false"/>
+			<Setting Id="ArchW" Label="Enter Arche Abbey Outer Wall" State="false"/>
+			<Setting Id="ArchR" Label="Enter Arche Abbey Broken Rift" State="false"/>
+			<Setting Id="ArchI" Label="Enter Arche Abbey Upper Part - Inside" State="false"/>
+		</Setting>
+		<Setting Id="boss" Label="Splits on completion of bosses">
+			<Setting Id="CH01_police_kill_1_2" Label="Kill Tutorial Police Officer" State="false"/>
+			<Setting Id="CH01_boss_kill_1_2" Label="Kill Parade Master" State="false"/>
+			<Setting Id="Tutorial_CH02_QST_Clear_1_2" Label="Kill Scrapped Watchman" State="false"/>
+			<Setting Id="CH03_boss_kill_1_2" Label="Kill King's Flame, Fuoco" State="false"/>
+			<Setting Id="CH04_boss_kill_1_2" Label="Kill Fallen Archbishop Andreus" State="false"/>
+			<Setting Id="CH05_boss_kill_1_2" Label="Kill Eldest of the Black Rabbit Brotherhood" State="false"/>
+			<Setting Id="CH06_Boss_Ergo_(!)" Label="Kill Romeo, King of Puppets" State="false"/>
+			<Setting Id="CH07_boss_kill_1_2" Label="Kill Champion Victor" State="false"/>
+			<Setting Id="CH08_boss_kill_1_2" Label="Kill Puppet-Devouring Green Monster" State="false"/>
+			<Setting Id="CH09_sid_kill_1_2" Label="Elevator After Killing Illusionary Walker" State="false"/>
+			<Setting Id="CH09_boss_kill_1_2" Label="Kill Corrupted Parade Master" State="false"/>
+			<Setting Id="CH11_boss_kill_1_2" Label="Kill Black Rabbit Brotherhood" State="false"/>
+			<Setting Id="Epic_key_Monastery_entry_(!)" Label="Kill Door Guardian" State="false"/>
+			<Setting Id="CH12_boss_kill_1_2" Label="Kill Laxasia the Complete" State="false"/>
+			<Setting Id="CH13_boss_kill_1_2" Label="Kill Simon Manus, Awakened God" State="false"/>
+		</Setting>
+		<Setting Id="Stalk" Label="Stalker Kills/Mask Collection">
+			<Setting Id="Madman" Label="Mad Donkey" State="false">
+				<Setting Id="Madman_L01_1_2" Label="Start Mad Donkey Fight" State="false"/>
+				<Setting Id="CH02_Madman_kill_1_2" Label="Kill Mad Donkey" State="false"/>
+			</Setting>
+			<Setting Id="Surv" Label="Survivor" State="false">
+				<Setting Id="Survivor_E02_1_2" Label="Start Survivor Fight" State="false"/>
+				<Setting Id="Costume_Stalker_Survivor_(!)" Label="Kill Survivor" State="false"/>
+			</Setting>
+			<Setting Id="Atone" Label="Atoned" State="false">
+				<Setting Id="Pilgrim_L01_4_2" Label="Start Atoned Fight" State="false"/>
+				<Setting Id="CH04_Pilgrim_kill_1_2" Label="Kill Atoned OR Give Stalkers Greeting" State="false"/>
+			</Setting>
+			<Setting Id="White" Label="The White Lady" State="false">
+				<Setting Id="WhiteLady_E01_2_1e" Label="Start The White Lady Fight" State="false"/>
+				<Setting Id="WhiteLady_die_check_1_2" Label="Kill The White Lady" State="false"/>
+			</Setting>
+			<Setting Id="_Mask_Stalker_ArmySurgeon_local_text_item_name-korean" Label="Kill Owl Doctor" State="false"/>
+			<Setting Id="_Mask_Stalker_Weasel_local_text_item_name-korean" Label="Kill Robber Weasel" State="false"/>
+			<Setting Id="_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
+			<Setting Id="Mask_Stalker_Cat_(!)" Label="Kill Black Cat Or Spare Him" State="false"/>
+			<Setting Id="Mask_Stalker_Fox_(!)" Label="Kill Red Fox Or Spare Her" State="false"/>
+		</Setting>
+		<Setting Id="Item" Label="Splits on items and interactions">
+			<Setting Id="Key_2_(!)" Label="Krat Central Station Main Entrance Key" State="false"/>
+			<Setting Id="HotelDoor_L01_4_2" Label="Enter Hotel Krat" State="false"/>
+			<Setting Id="Epic_key_cityhall_(!)" Label="Krat City Hall Key" State="false"/>
+			<Setting Id="Police_died_2_2" Label="Pick Up Krat Police Baton" State="false"/>
+			<Setting Id="Epic_key_ftr_(!)" Label="Krat City Hall Courtyard Key" State="false"/>
+			<Setting Id="WP_PC_HND_ClockworkBlunt_(!)" Label="Pick Up Big Pipe Wrench" State="false"/>
+			<Setting Id="Krat_BlackBox_3_(!)" Label="Collect Krat Supply Box" State="false"/>
+			<Setting Id="Epic_blackrabbit_(!)" Label="Smiling Bunny Mark" State="false"/>
+			<Setting Id="Epic_key_SlumHouse_(!)" Label="Slum Shack Key" State="false"/>
+			<Setting Id="Epic_boy_paint_(!)" Label="Portrait of a Boy" State="false"/>
+			<Setting Id="Epic_key_hotel_to_cult_(!)" Label="Rosa Isabelle Street Entrance Key" State="false"/>
+			<Setting Id="Epic_key_arcadecross_(!)" Label="Lorenzini Arcade 1st Floor Key" State="false"/>
+			<Setting Id="part_bone_5_(!)" Label="Destory Claw Carcass In Arcade For Gate" State="false"/>
+			<Setting Id="Epic_key_arcade_tunnel_(!)" Label="Arcade Underground Passage Key" State="false"/>
+			<Setting Id="AC_mgmt_stat_L1_12_(!)" Label="Destory Axe Clown Puppet In Arcade For Gate" State="false"/>
+			<Setting Id="Krat_BlackBox_4_(!)" Label="Collect Sturdy Krat Supply Box" State="false"/>
+			<Setting Id="Collection_Dottedpaper_03_(!)" Label="Old Cryptic Vessel" State="false"/>
+			<Setting Id="Krat_BlackBox_5_(!)" Label="Collect Special Krat Supply Box" State="false"/>
+			<Setting Id="Epic_key_MonasteryB_6F_(!)" Label="Arche Abbey Passageway Key" State="false"/>
+		</Setting>
+		<Setting Id="NPC" Label="NPC Quests">
+			<Setting Id="Toma" Label="Toma's Request" State="false">
+				<Setting Id="Window_nst_E01_1_2" Label="Start Toma's Request" State="false"/>
+				<Setting Id="Window_nst_E02_3_1" Label="Find the Faded Whistle" State="false"/>
+				<Setting Id="Window_nst_E02_5_1" Label="Complete Toma's Request" State="false"/>
+			</Setting>
+			<Setting Id="Baby" Label="Find My Baby" State="false">
+				<Setting Id="ExiledLady_L01_5_1" Label="Start Find My Baby" State="false"/>
+				<Setting Id="ExiledLady_L01_6_1" Label="Find the Broken Baby Puppet" State="false"/>
+				<Setting Id="ExiledLady_L01_10_1" Label="Finish Find My Baby" State="false"/>
+			</Setting>
+			<Setting Id="Mark" Label="Return the Archbishop's Holy Mark" State="false">
+				<Setting Id="Cecile_E01_3_1" Label="Start Return the Archbishop's Holy Mark" State="false"/>
+				<Setting Id="Epic_Poison_for_rest_(!)" Label="Find Archbishop's Holy Mask" State="false"/>
+				<Setting Id="Cecile_E01_5_1" Label="Finish Return the Archbishop's Holy Mark" State="false"/>
+			</Setting>
+			<Setting Id="Adelina" Label="Adelina's Quest" State="false">
+				<Setting Id="Epic_RedApple_(!)" Label="Buy Bright Red Apple (Starts Actress in the Opera House)" State="false"/>
+				<Setting Id="Primadonna_apple_check_1_2" Label="Give Adelina the apple" State="false"/>
+			</Setting>
+			<Setting Id="Bottle" Label="Bottle of Lableiweis" State="false">
+				<Setting Id="Window_esw_E01_3_1" Label="Start Bottle of Lableiweis" State="false"/>
+				<Setting Id="Epic_WineCollection_(!)" Label="Find Lableiweis" State="false"/>
+				<Setting Id="Window_esw_hand_check_1_2" Label="Finish Bottle of Lableiweis" State="false"/>
+			</Setting>
+			<Setting Id="Marriage" Label="Marriage to Puppet" State="false">
+				<Setting Id="Gentleman_L01_3_1" Label="Start Marriage to Puppet" State="false"/>
+				<Setting Id="Epic_ring_(!)" Label="Find Wedding Ring" State="false"/>
+				<Setting Id="Gentleman_L01_10_1" Label="Finish Marriage to Puppet" State="false"/>
+			</Setting>
+			<Setting Id="Partner" Label="End My Partner" State="false">
+				<Setting Id="Belle_exhbn_E01_3_1" Label="Start End My Partner" State="false"/>
+			</Setting>
+			<Setting Id="Broken" Label="The Broken Puppet" State="false">
+				<Setting Id="Friend_of_Doll_E01_2_1" Label="Start The Broken Puppet" State="false"/>
+			
+			</Setting>
+		</Setting>	
+		<Setting Id="CH14_boss_kill_1_2" Label="Final Split (KEEP ACTIVE)" State="true"/>
 	</Setting>
-    <Setting Id="boss" Label="Splits On Completion of Quest">
-	    <Setting Id="quest_6" Label="Kill Tutorial Police Officer" State="false"/>
-		<Setting Id="quest_2" Label="Kill Parade Master" State="false"/>
-		<Setting Id="quest_33" Label="Kill Scrapped Watchman" State="false"/>
-		<Setting Id="quest_41" Label="Kill King's Flame, Fuoco" State="false"/>
-		<Setting Id="quest_105" Label="Kill Fallen Archbishop Andreus" State="false"/>
-		<Setting Id="quest_120" Label="Kill Eldest of the Black Rabbit Brotherhood" State="false"/>
-		<Setting Id="quest_126" Label="Kill White Lady" State="false"/>
-		<Setting Id="quest_133" Label="Kill Romeo, King of Puppets" State="false"/>
-		<Setting Id="quest_140" Label="Kill Champion Victor" State="false"/>
-		<Setting Id="quest_146" Label="Kill Puppet-Devouring Green Monster" State="false"/>
-		<Setting Id="quest_161" Label="Kill Corrupted Parade Master" State="false"/>
-		<Setting Id="quest_167" Label="Kill Black Rabbit Brotherhood" State="false"/>
-		<Setting Id="_Epic_key_Monastery_entry_local_text_item_name-korean" Label="Kill Door Guardian" State="false"/>
-		<Setting Id="quest_171" Label="Kill Laxasia the Complete" State="false"/>
-		<Setting Id="quest_185" Label="Kill Simon Manus, Awakened God" State="false"/>
+	<Setting Id="DLC" Label="DLC Splits">
+		<Setting Id="areaDLC" Label="Splits On Entering Area For First Time/ Events">
+			<Setting Id="DLC_H_Enter_Sequence_1_2" Label="Enter Hotel Krat Cutscene"/>
+			<Setting Id="DLC_Collection_Poster_Romeo_damaged_(!)" Label="Meet Lea"/>
+			<Setting Id="DLC_CH05_Lea_Dialog_2_1" Label="Entered Charity House"/>
+		</Setting>
+		<Setting Id="ItemDLC" Label="Splits on items and interactions">
+			<Setting Id="WP_PC_HND_Ballista_(!)" Label="Lorenzini Bolt"/>
+			<Setting Id="DLC_Collection_Note_UrgentOrder_(!)" Label="Emergency Directive No.1"/>
+			<Setting Id="Epic_Key_zoo_tram_(!)" Label="Zoo Tram Station Key"/>
+			<Setting Id="Epic_key_lab_monad_(!)" Label="Monad Family's Master Key"/>
+			<Setting Id="WP_PC_HND_FireRapier_(!)" Label="Puppet of the Future's Welder"/>
+			<Setting Id="part_assembly_all_4_(!)" Label="Workshop Union Finished Cartridge (Bruce)"/>
+			<Setting Id="DLC_Collection_Letter_StrangeStory_02_01_(!)" Label="Corroded Cipher Machine (Robot)"/>
+			<Setting Id="Epic_key_RoseGarden_(!)" Label="Rose Garden Key"/>
+		</Setting>
+		<Setting Id="bossDLC" Label="Splits on completion of bosses">
+			<Setting Id="DLC_CH01_Boss_Ergo_(!)" Label="Defeat Markioana"/>
+			<Setting Id="Epic_key_lab_control_room_(!)" Label="Defeat Veronique"/>
+			<Setting Id="DLC_Collection_Letter_StrangeStory_01_01_(!)" Label="Defeat Two Faced Overseer"/>
+			<Setting Id="DLC_CH03_Boss_Ergo_(!)" Label="Defeat Anguished Guardian of the Ruins"/>
+			<Setting Id="DLC_Costume_Stalker_Snail_(!)" Label="Defeat Lumacchio"/>
+			<Setting Id="Epic_key_hotel_VIP_(!)" Label="Defeat Arlechinno"/>
+		</Setting>
 	</Setting>
-	<Setting Id="Stalk" Label="Stalker Kills/Mask Collection">
-		<Setting Id="quest_32" Label="Kill Mad Donkey" State="false"/>
-		<Setting Id="_Mask_Stalker_Survivor_local_text_item_name-korean" Label="Kill Survivor" State="false"/>
-		<Setting Id="_Mask_Stalker_Pilgrim_local_text_item_name-korean" Label="Kill The Atoned" State="false"/>
-		<Setting Id="_Mask_Stalker_WhiteLady_local_text_item_name-korean" Label="Kill The White Lady" State="false"/>
-		<Setting Id="_Mask_Stalker_ArmySurgeon_local_text_item_name-korean" Label="Kill Owl Doctor" State="false"/>
-		<Setting Id="_Mask_Stalker_Weasel_local_text_item_name-korean" Label="Kill Robber Weasel" State="false"/>
-		<Setting Id="_Collection_Dottedpaper_06_local_text_item_name-korean" Label="Kill Alidoro" State="false"/>
-		<Setting Id="_Mask_Stalker_Cat_local_text_item_name-korean" Label="Kill Black Cat Or Spare Him" State="false"/>
-		<Setting Id="_Mask_Stalker_Fox_local_text_item_name-korean" Label="Kill Red Fox Or Spare Her" State="false"/>
-	</Setting>
-	<Setting Id="Item" Label="Splits on items and interactions">
-		<Setting Id="quest_7" Label="Open Hotel Door For First Time" State="false"/>
-		<Setting Id="Baton" Label="Pick Up Krat Police Baton" State="false"/>
-		<Setting Id="Wrench" Label="Pick Up Big Pipe Wrench" State="false"/>
-		<Setting Id="_Krat_BlackBox_2_local_text_item_name-korean" Label="Collect Krat Supply Box" State="false"/>
-		<Setting Id="_Krat_BlackBox_3_local_text_item_name-korean" Label="Collect Sturdy Krat Supply Box" State="false"/>
-		<Setting Id="_Krat_BlackBox_4_local_text_item_name-korean" Label="Collect Special Krat Supply Box" State="false"/>
-		<Setting Id="quest_164" Label="Elevator After Killing Illusionary Walker" State="false"/>
-		<Setting Id="_Epic_key_MonasteryB_6F_local_text_item_name-korean" Label="Recieve Arche Abbey Passageway Key" State="false"/>
-	</Setting>
-	<Setting Id="quest_198" Label="Final Split (KEEP ACTIVE)" State="true"/>
 </Settings>
+
