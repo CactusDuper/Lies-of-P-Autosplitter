@@ -123,6 +123,9 @@ init
 onStart
 {
 	vars.completedSplits.Clear();
+	vars.Inventory.Clear();
+	vars.Quests.Clear();
+	vars.QuestSteps.Clear();
 	vars.XYZSplits = new bool[27];
 	vars.PendingSplits = 0;
 }
@@ -130,9 +133,6 @@ onStart
 start
 {
 	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3){
-        	vars.resetFunction = 0;
-
-        	// print(current.TransitionDescription);
         	return true;
     }
 }
@@ -150,7 +150,8 @@ update
 		vars.XYZSplits = new bool[28];
 	}
 	
-	//print(vars.FNameToString(current.N1));
+	//print(current.TransitionDescription);
+	//print(vars.FNameToString(current.AcknowledgedPawn));
 }
 
 split
@@ -267,8 +268,9 @@ split
 isLoading
 {
     if (current.TransitionDescription == "/Game/Map/PSO_P" || current.TransitionDescription == "/Game/Map/Init_P" || current.TransitionDescription == "/Game/Map/Title2_P" || 
-			current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || 
-			current.TransitionDescription == "/Game/Map/Loading_P" || current.menuBuffer < 5 || current.AsyncLoadingWidget != 0xFFFFFFFF)
+			current.TransitionDescription == "/Game/Map/Title3_P" || current.TransitionDescription == "/Game/Map/Title_P" || current.TransitionDescription == "/Game/Map/TitleD1_P" ||
+			current.TransitionDescription == "/Game/Map/TitleD2_P" || current.TransitionDescription == "/Game/Map/TitleD3_P" || current.TransitionDescription == "/Game/Map/Loading_P" 
+			|| current.menuBuffer < 5 || current.AsyncLoadingWidget != 0xFFFFFFFF)
     {
         return true;
     }
@@ -281,6 +283,7 @@ isLoading
 reset
 {
     // check gameStartType + isStarted?
+	vars.completedSplits.Clear();
 }
 
 exit
