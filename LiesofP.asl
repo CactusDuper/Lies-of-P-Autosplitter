@@ -51,6 +51,7 @@ init
 			break;
 		case (122912768):
 		case (113602560):
+		case (123031552):
 			version = "Post DLC";
 			break;
 	}
@@ -291,3 +292,4 @@ exit
 	//pauses timer if the game crashes
 	timer.IsGameTimePaused = true;
 }
+
