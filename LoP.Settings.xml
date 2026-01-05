@@ -129,7 +129,7 @@
 			
 			</Setting>
 		</Setting>	
-		<Setting Id="CH14_boss_kill_1_2" Label="Final Split (KEEP ACTIVE)" State="true"/>
+		<Setting Id="NGP_ending_reward_check_1_2" Label="Final Split (KEEP ACTIVE)" State="true"/>
 	</Setting>
 	<Setting Id="DLC" Label="DLC Splits">
 		<Setting Id="areaDLC" Label="Splits On Entering Area For First Time/ Events">
