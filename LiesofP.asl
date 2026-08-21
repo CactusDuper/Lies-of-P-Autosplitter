@@ -52,6 +52,7 @@ init
 		case (122912768):
 		case (113602560):
 		case (123031552):
+		case (123076608):
 			version = "Post DLC";
 			break;
 	}
