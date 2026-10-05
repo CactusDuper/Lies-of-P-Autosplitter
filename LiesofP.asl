@@ -134,7 +134,7 @@ onStart
 
 start
 {
-	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && current.bPlayInputLock == false && current.menuBuffer != 3){
+	if (current.TransitionDescription == "/Game/MapRelease/LV_Zone_S/LV_Zone_S_P" && !current.bPlayInputLock && current.menuBuffer != 3){
         	return true;
     }
 }
