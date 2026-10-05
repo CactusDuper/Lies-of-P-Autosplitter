@@ -83,8 +83,9 @@ init
 		vars.Helper["Y"] = vars.Helper.Make<float>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x220, 0x248, 0x258);
 		vars.Helper["Z"] = vars.Helper.Make<float>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x220, 0x248, 0x254);
 		vars.Helper["menuBuffer"] = vars.Helper.Make<byte>(gEngine, 0xD28, 0xF0, 0x230, 0x80);
-		vars.Helper["bPlayInputLock"] = vars.Helper.Make<long>(gEngine, 0xD28, 0xF0, 0x230, 0x110);
-		vars.Helper["AsyncLoadingWidget"] = vars.Helper.Make<byte>(gEngine, 0xD28, 0xF0, 0x308, 0x1D0);
+		vars.Helper["bPlayInputLock"] = vars.Helper.Make<bool>(gEngine, 0xD28, 0xF0, 0x230, 0x110);
+		vars.Helper["AsyncLoadingWidget"] = vars.Helper.Make<long>(gEngine, 0xD28, 0xF0, 0x308, 0x1D0);
+		vars.Helper["AcknowledgedPawn"] = vars.Helper.Make<ulong>(gEngine, 0xD28, 0x38, 0x0, 0x30, 0x260, 0x18);
 	}
 	
 	vars.FNameToString = (Func<ulong, string>)(fName =>
